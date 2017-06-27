@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :proposals
   resources :company_users
   devise_for :users
   resources :companies
