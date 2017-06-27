@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @portfolio.title %>
+</p>
+
+<p>
+  <strong>Cover image:</strong>
+  <%= @portfolio.cover_image %>
+</p>
+<p> 
+<%= link_to "new",  new_portfolio_portfolio_item_path(@portfolio) %>
+</p>
+<p>
+  <%= render @portfolio.portfolio_items %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

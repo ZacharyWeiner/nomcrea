@@ -24,7 +24,16 @@ tomford.users << tfUser
 tomford.proposals.create!(title: "Tom Fords 1st proposal", content: 'This is a description of tom fords first proposal')
 tomford.proposals.first.requirements.create!(title: "do tom ford", description: "make tom ford happen")
 
-User.create!(email: 'user@nomcrea.com', password: 'password', password_confirmation: 'password')
+nomCrea1 = User.create!(email: 'creative@nomcrea.com', password: 'password', password_confirmation: 'password')
+nomCrea1Portfolio1 = Portfolio.create!(title: 'nomCrea1 - Photography', user: nomCrea1)
+nomCrea1Portfolio1.portfolio_items.create(title: 'Photography Exibit 1', description: "Published works from Job XYZ")
+nomCrea1Portfolio1.portfolio_items.create(title: 'Photography Exibit 2', description: "Published works from Job ABC")
+nomCrea1.portfolios << nomCrea1Portfolio1
+
+nomCrea1Portfolio2 = Portfolio.create!(title: 'nomCrea1 - Videography', user: nomCrea1)
+nomCrea1Portfolio2.portfolio_items.create(title: 'Videography Exibit 1', description: "Published works from Job ABC")
+nomCrea1Portfolio2.portfolio_items.create(title: 'Videography Exibit 2', description: "Published works from Job XYZ")
+nomCrea1.portfolios << nomCrea1Portfolio2
 
 
 

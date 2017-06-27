@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  resources :portfolios do 
+    resources :portfolio_items
+  end
   resources :requirements
   resources :proposals
   resources :company_users

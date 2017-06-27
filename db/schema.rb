@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627190712) do
+ActiveRecord::Schema.define(version: 20170627195739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,25 @@ ActiveRecord::Schema.define(version: 20170627190712) do
     t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "portfolio_items", force: :cascade do |t|
+    t.string "title"
+    t.text "cover_image"
+    t.text "description"
+    t.bigint "portfolio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_portfolio_items_on_portfolio_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "title"
+    t.text "cover_image"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -92,6 +111,8 @@ ActiveRecord::Schema.define(version: 20170627190712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "portfolio_items", "portfolios"
+  add_foreign_key "portfolios", "users"
   add_foreign_key "proposals", "companies"
   add_foreign_key "proposals", "users"
   add_foreign_key "requirements", "proposals"
