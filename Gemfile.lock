@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/mbleigh/acts-as-taggable-on
+  revision: 4d9a10c25e106bd2467662baea58510a17809ca2
+  specs:
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
+
+GIT
   remote: https://github.com/twbs/bootstrap-rubygem
   revision: 7cdeca9a0e8db3bb7548d9fa5bdaad9b644fca32
   specs:
@@ -219,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   bootstrap!
   byebug
   capybara (~> 2.13)
