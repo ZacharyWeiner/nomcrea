@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attachement:</strong>
+  <%= @portfolio_item_attachment.attachement %>
+</p>
+
+
+<%= link_to 'Edit', edit_portfolio_portfolio_item_portfolio_item_attachment_path(@portfolio_item_attachment.portfolio_item.portfolio, @portfolio_item_attachment.portfolio_item, @portfolio_item_attachment) %> |
+<%= link_to 'Back', portfolio_portfolio_item_portfolio_item_attachments_path(@portfolio_item_attachment.portfolio_item.portfolio) %>

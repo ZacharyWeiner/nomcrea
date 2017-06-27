@@ -37,7 +37,7 @@ class PortfolioItemsController < ApplicationController
   # PATCH/PUT /portfolio_items/1
   def update
     if @portfolio_item.update(portfolio_item_params)
-      redirect_to @portfolio_item, notice: 'Portfolio item was successfully updated.'
+      redirect_to portfolio_portfolio_item_url(@portfolio_item.portfolio, @portfolio_item), notice: 'Portfolio item was successfully updated.'
     else
       render :edit
     end

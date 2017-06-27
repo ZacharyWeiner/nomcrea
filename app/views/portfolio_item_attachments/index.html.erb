@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Portfolio Item Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attachement</th>
+      <th>Portfolio item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @portfolio_item_attachments.each do |portfolio_item_attachment| %>
+      <tr>
+        <td><%= portfolio_item_attachment.attachement %></td>
+        <td><%= portfolio_item_attachment.portfolio_item %></td>
+        <td><%= link_to 'Show', portfolio_portfolio_item_portfolio_item_attachment_path(portfolio_item_attachment.portfolio_item.portfolio, portfolio_item_attachment.portfolio_item, portfolio_item_attachment) %></td>
+        <td><%= link_to 'Edit', edit_portfolio_portfolio_item_portfolio_item_attachment_path(portfolio_item_attachment.portfolio_item.portfolio, portfolio_item_attachment.portfolio_item, portfolio_item_attachment) %></td>
+        <td><%= link_to 'Destroy', [portfolio_item_attachment.portfolio_item.portfolio, portfolio_item_attachment.portfolio_item, portfolio_item_attachment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Portfolio Item Attachment', new_portfolio_portfolio_item_portfolio_item_attachment_path %>

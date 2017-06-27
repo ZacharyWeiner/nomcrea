@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627195739) do
+ActiveRecord::Schema.define(version: 20170627212020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20170627195739) do
     t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "portfolio_item_attachments", force: :cascade do |t|
+    t.text "attachement"
+    t.bigint "portfolio_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_item_id"], name: "index_portfolio_item_attachments_on_portfolio_item_id"
   end
 
   create_table "portfolio_items", force: :cascade do |t|
@@ -111,6 +119,7 @@ ActiveRecord::Schema.define(version: 20170627195739) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "portfolio_item_attachments", "portfolio_items"
   add_foreign_key "portfolio_items", "portfolios"
   add_foreign_key "portfolios", "users"
   add_foreign_key "proposals", "companies"

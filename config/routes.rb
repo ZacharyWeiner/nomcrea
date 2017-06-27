@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+  
   resources :portfolios do 
-    resources :portfolio_items
+    resources :portfolio_items do 
+      resources :portfolio_item_attachments
+    end
   end
   resources :requirements
   resources :proposals

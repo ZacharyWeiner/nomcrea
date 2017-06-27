@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attachement: MyText
+  portfolio_item: one
+
+two:
+  attachement: MyText
+  portfolio_item: two

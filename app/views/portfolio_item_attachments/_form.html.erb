@@ -1,0 +1,22 @@
+<%= form_for [portfolio, portfolio_item, portfolio_item_attachment] do |form| %>
+  <% if portfolio_item_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(portfolio_item_attachment.errors.count, "error") %> prohibited this portfolio_item_attachment from being saved:</h2>
+
+      <ul>
+      <% portfolio_item_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :attachement %>
+    <%= form.text_area :attachement, id: :portfolio_item_attachment_attachement %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
