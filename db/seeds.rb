@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Company.create!(name: "CocaCola", website: 'www.coke.com')
+Company.create!(name: "Pepsi", website: 'www.pepsi.com')
 
 User.create!(email: 'user@nomcrea.com', password: 'password', password_confirmation: 'password')
 User.create!(email: 'company-user@nomcrea.com', password: 'password', password_confirmation: 'password')
 User.create!(email: 'company-user2@nomcrea.com', password: 'password', password_confirmation: 'password')
 User.create!(email: 'company-user3@nomcrea.com', password: 'password', password_confirmation: 'password')
 
-Company.create!(name: "CocaCola", website: 'www.coke.com')
-Company.create!(name: "Pepsi", website: 'www.pepsi.com')
