@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627182122) do
+ActiveRecord::Schema.define(version: 20170627183308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20170627182122) do
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
+  create_table "requirements", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "accepted"
+    t.bigint "proposal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proposal_id"], name: "index_requirements_on_proposal_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,5 +69,6 @@ ActiveRecord::Schema.define(version: 20170627182122) do
 
   add_foreign_key "proposals", "companies"
   add_foreign_key "proposals", "users"
+  add_foreign_key "requirements", "proposals"
   add_foreign_key "users", "companies"
 end

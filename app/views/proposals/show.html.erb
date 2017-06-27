@@ -29,6 +29,6 @@
   <strong>User:</strong>
   <%= @proposal.user %>
 </p>
-
+<%= render @proposal.requirements %>
 <%= link_to 'Edit', edit_proposal_path(@proposal) %> |
 <%= link_to 'Back', proposals_path %>
