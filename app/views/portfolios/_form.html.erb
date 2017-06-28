@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :portfolio_title %>
+    <%= form.text_field :title, id: :portfolio_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cover_image %>
-    <%= form.text_area :cover_image, id: :portfolio_cover_image %>
+    <%= form.text_area :cover_image, id: :portfolio_cover_image, class: 'form-control' %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>

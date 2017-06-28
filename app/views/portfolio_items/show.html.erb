@@ -1,6 +1,24 @@
-<p id="notice"><%= notice %></p>
+<section class="jumbotron text-center" style='background-image: url("<%= @portfolio_item.safe_cover_image %>");background-size: cover; background-repeat: no-repeat;'>
+  <div class="container">
+    <h1 class="jumbotron-heading"><%= @portfolio_item.title %></h1>
+    <p class="lead text-muted"><%= @portfolio_item.portfolio.user.email %></p>
+    
+    <p>
+      <a href="#" class="btn btn-primary">Hire Me</a>
+      <a href="#" class="btn btn-secondary">Message Owner</a>
+    </p>
+  </div>
+</section>
 
-<%= render @portfolio_item %>
+<div class="container">
+    <h4>Items</h4>
+    <div class='row'> 
+    <%= render @portfolio_item.portfolio_item_attachments %>
+    </div>
+    <%= link_to 'Edit', edit_portfolio_portfolio_item_path(@portfolio_item.portfolio, @portfolio_item) %>|
+    <%= link_to 'Back', portfolio_portfolio_items_path(@portfolio_item.portfolio) %>
 
-<%= link_to 'Edit', edit_portfolio_portfolio_item_path(@portfolio_item.portfolio, @portfolio_item) %> |
-<%= link_to 'Back', portfolio_portfolio_items_path(@portfolio_item.portfolio) %>
+</div>
+
+
+

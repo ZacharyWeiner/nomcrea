@@ -1,20 +1,27 @@
 <p id="notice"><%= notice %></p>
+<section class="jumbotron text-center" style='background-image: url("<%= @portfolio.safe_cover_image %>");background-size: cover; background-repeat: no-repeat;'>
+  <div class="container">
+    <h1 class="jumbotron-heading"><%= @portfolio.title %></h1>
+    <p class="lead text-muted"><%= @portfolio.user.email %></p>
+    
+    <p>
+      <a href="#" class="btn btn-primary">Request Job</a>
+      <a href="#" class="btn btn-secondary">Message Owner</a>
+    </p>
+  </div>
+</section>
 
-<p>
-  <strong>Title:</strong>
-  <%= @portfolio.title %>
-</p>
+<div class="container">
+    <h4>Items</h4>
+    <div class='row'> 
+    <%= render @portfolio.portfolio_items %>
+    </div>
+    <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+    <%= link_to 'Back', portfolios_path %>
 
-<p>
-  <strong>Cover image:</strong>
-  <%= @portfolio.cover_image %>
-</p>
-<p> 
-<%= link_to "new",  new_portfolio_portfolio_item_path(@portfolio) %>
-</p>
-<p>
-  <%= render @portfolio.portfolio_items %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-<%= link_to 'Back', portfolios_path %>
+
+
+
+

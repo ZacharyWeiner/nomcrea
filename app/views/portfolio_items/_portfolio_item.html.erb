@@ -1,14 +1,9 @@
-<p>
-  <strong>Title:</strong>
-  <%= portfolio_item.title %>
-</p>
-
-<p>
-  <strong>Cover image:</strong>
-  <%= portfolio_item.cover_image %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= portfolio_item.description %>
-</p>
+<div class="card text-center" style='background-image: url("<%= portfolio_item.safe_cover_image %>");background-size: cover; background-repeat: no-repeat; margin: 8px;' > 
+  <div class="card-block">
+    <h3 class='card-title'><%= portfolio_item.title %></h3>
+    <p class='card-text'><%= portfolio_item.description %></p>
+      <%= link_to 'Show', portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-primary'%>
+      <%= link_to 'Edit', edit_portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-warning' %>
+      <%= link_to 'Destroy', [portfolio_item.portfolio, portfolio_item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div>
+  </div>

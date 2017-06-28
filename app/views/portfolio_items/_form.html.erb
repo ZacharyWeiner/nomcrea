@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :portfolio_item_title %>
+    <%= form.text_field :title, id: :portfolio_item_title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cover_image %>
-    <%= form.text_area :cover_image, id: :portfolio_item_cover_image %>
+    <%= form.text_area :cover_image, id: :portfolio_item_cover_image, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :portfolio_item_description %>
+    <%= form.text_area :description, id: :portfolio_item_description, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

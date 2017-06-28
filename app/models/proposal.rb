@@ -4,4 +4,6 @@ class Proposal < ApplicationRecord
   has_many :requirements
 
   acts_as_taggable_on :skills
+
+  
 end
