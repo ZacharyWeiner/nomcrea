@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name %>
+    <%= form.text_field :name, id: :company_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :website %>
-    <%= form.text_field :website, id: :company_website %>
+    <%= form.text_field :website, id: :company_website, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :logo %>
-    <%= form.text_area :logo, id: :company_logo %>
+    <%= form.text_area :logo, id: :company_logo, class: 'form-control' %>
   </div>
 <!-- 
   <div class="field">
@@ -32,6 +32,6 @@
   </div> -->
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

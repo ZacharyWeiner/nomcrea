@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NomCrea</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'proposals', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <!-- Begin Nav --> 
+    <div class="collapse bg-inverse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Connecting Brands and Media/Content Talent</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Search</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Photography</a></li>
+              <li><a href="#" class="text-white">Videography</a></li>
+              <li><a href="#" class="text-white">Creative Directors</a></li>
+              <li><a href="#" class="text-white">Stylists</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand">NomCrea</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  <!-- End Nav --> 
+    <%= yield %>
+    <%= render 'shared/footer'%>
+  </body>
+  </html>
