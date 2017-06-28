@@ -36,6 +36,9 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem "gritter", "1.2.0"
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-aws'
+gem 'dotenv-rails', groups: [:development, :test]
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

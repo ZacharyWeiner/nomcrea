@@ -3,6 +3,7 @@ class Portfolio < ApplicationRecord
   has_many :portfolio_items
 
   acts_as_taggable_on :skills
+  mount_uploader :cover_image, CoverImageUploader
   def safe_cover_image
     if self.cover_image
       self.cover_image 

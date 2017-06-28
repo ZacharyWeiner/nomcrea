@@ -1,5 +1,5 @@
 <h1>Editing Portfolio Item Attachment</h1>
-
+<%= image_tag @portfolio_item_attachment.attachement %>
 <%= render 'form', portfolio: @portfolio, portfolio_item: @portfolio_item, portfolio_item_attachment: @portfolio_item_attachment %>
 
 <%= link_to 'Show', portfolio_portfolio_item_portfolio_item_attachment_path(@portfolio_item_attachment.portfolio_item.portfolio, @portfolio_item_attachment.portfolio_item, @portfolio_item_attachment) %> |

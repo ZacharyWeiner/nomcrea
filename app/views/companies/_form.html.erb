@@ -27,8 +27,9 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :logo %>
-        <%= form.text_area :logo, id: :company_logo, class: 'form-control' %>
+        <label class='btn btn-primary btn-block'>
+        Upload Main Image <%= form.file_field :logo, style: 'display:none;' %>  
+        </label>
       </div>
 <!-- 
   <div class="field">

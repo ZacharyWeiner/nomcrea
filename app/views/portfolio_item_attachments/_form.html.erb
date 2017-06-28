@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :attachement %>
-    <%= form.text_area :attachement, id: :portfolio_item_attachment_attachement %>
+  <div class="form-group">
+    <label class='btn btn-primary btn-block'>
+      Upload Gallery Item <%= form.file_field :attachement, style: 'display:none;' %>  
+    </label>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
