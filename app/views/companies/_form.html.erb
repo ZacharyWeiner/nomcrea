@@ -1,37 +1,47 @@
-<%= form_with(model: company, local: true) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
 
-      <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= form_with(model: company, local: true) do |form| %>
+      <% if company.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+        <ul>
+          <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name, class: 'form-control' %>
-  </div>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :company_name, class: 'form-control' %>
+      </div>
 
-  <div class="form-group">
-    <%= form.label :website %>
-    <%= form.text_field :website, id: :company_website, class: 'form-control' %>
-  </div>
+      <div class="form-group">
+        <%= form.label :website %>
+        <%= form.text_field :website, id: :company_website, class: 'form-control' %>
+      </div>
 
-  <div class="form-group">
-    <%= form.label :logo %>
-    <%= form.text_area :logo, id: :company_logo, class: 'form-control' %>
-  </div>
+      <div class="form-group">
+        <%= form.label :logo %>
+        <%= form.text_area :logo, id: :company_logo, class: 'form-control' %>
+      </div>
 <!-- 
   <div class="field">
     <%= form.label :users_id %>
     <%= form.text_field :users_id, id: :company_users_id %>
   </div> -->
 
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+      <div class="actions">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+    </div>
+    <div class='col-md-4'></div>
   </div>
-<% end %>
+</div>  
