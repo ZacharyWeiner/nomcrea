@@ -1,6 +1,15 @@
-<div id='user-nav' class=''>
-  <% if current_user? %>
-    <li><%= link_to 'My Portfolios' my_portfolios_path %></li>>
-    <li><%= link_to 'My Proposals' my_portfolios_path %></li>>
-  <% end %>
-</div>
+
+<% if current_user %>
+<li class="nav-item">
+  <%= link_to 'My Proposals', my_proposals_path, class: 'nav-link' %>
+</li>
+<% if current_user && current_user.company  == nil %>
+<li class="nav-item">
+  <%= link_to 'My Portfolios', my_portfolios_path, class: 'nav-link' %>
+</li>
+<% end %>
+<li>
+  <%= link_to 'My Profile', edit_user_registration_path, class: 'nav-link' %>
+  
+</li>
+<%end%>

@@ -10,10 +10,10 @@ class PagesController < ApplicationController
   end
 
   def my_proposals
-    if user.company 
-        @proposals = Proposals.where(company_id: user.company_id)
+    if current_user.company 
+        @proposals = Proposal.where(company_id: current_user.company_id)
     else 
-      @proposals = Proposals.where(user_id: current_user.id)
+      @proposals = Proposal.where(user_id: current_user.id)
     end 
   end 
 
