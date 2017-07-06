@@ -5,7 +5,7 @@ class Portfolio < ApplicationRecord
   acts_as_taggable_on :skills
   mount_uploader :cover_image, CoverImageUploader
   def safe_cover_image
-    if self.cover_image
+    if self.cover_image?
       self.cover_image 
     else
       "http://lorempixel.com/400/200"  
