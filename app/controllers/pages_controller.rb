@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end 
 
   def my_portfolios
-    @portfolios = Portfolio.where(user_id: current_user.id)
+    @portfolios = Portfolio.where(user: current_user)
   end
 
   def my_proposals

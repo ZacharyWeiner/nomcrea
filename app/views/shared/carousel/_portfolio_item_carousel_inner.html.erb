@@ -1,0 +1,31 @@
+<% @portfolio_items_count = 0 %>
+<% @top_3  = @portfolio_items.take(3)%>
+<% puts "Portfolio Count: #{@portfolio_items.count}" %>
+<% @numbers = ['first', 'second', 'third']%>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <%= slide_count_list @top_3 %>
+  <div class="carousel-inner" role="listbox">
+    <% @portfolio_items.each do |portfolio_item| %>
+    <% puts "Portfolio" + @numbers[@portfolios_count] %>
+    <div class="carousel-item <%= 'active 'if @portfolios_items_count ==0 %>">
+      <img class="<%= @numbers[@portfolio_items_count] %>-slide" src="<%= portfolio_item.safe_cover_image %>" alt="<%= @numbers[@portfolio_items_count] %> slide">
+      <div class="container">
+        <div class="carousel-caption  d-md-block">
+          <h1><%= portfolio_item.title %></h1>
+          <p></p>
+          <p><%= link_to 'View Gallert', portfolio_item_path(portfolio), class: "btn btn-lg btn-primary" %></p>
+        </div>
+      </div>
+    </div>
+    <% @portfolio_items_count = @portfolio_items_count +1 %>
+    <% end %>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

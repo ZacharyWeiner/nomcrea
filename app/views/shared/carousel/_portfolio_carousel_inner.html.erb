@@ -1,0 +1,30 @@
+<% @portfolios_count = 0 %>
+<% puts "Portfolio Count: #{@portfolios.count}" %>
+<% @numbers = ['first', 'second', 'third']%>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <%= slide_count_list @portfolios %>
+  <div class="carousel-inner" role="listbox">
+    <% @portfolios.each do |portfolio| %>
+    <% puts "Portfolio" + @numbers[@portfolios_count] %>
+    <div class="carousel-item <%= 'active 'if @portfolios_count ==0 %>">
+      <img class="<%= @numbers[@portfolios_count] %>-slide" src="<%= portfolio.safe_cover_image %>" alt="<%= @numbers[@portfolios_count] %> slide">
+      <div class="container">
+        <div class="carousel-caption  d-md-block">
+          <h1><%= portfolio.title %></h1>
+          <p></p>
+          <p><%= link_to 'View Portfolio', portfolio_path(portfolio), class: "btn btn-lg btn-primary" %></p>
+        </div>
+      </div>
+    </div>
+    <% @portfolios_count = @portfolios_count +1 %>
+    <% end %>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

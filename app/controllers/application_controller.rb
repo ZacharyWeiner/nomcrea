@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller? 
   def set_copyright
-    @copyright = ZacksViewTool::Renderer.copyright 'NomCrea', 'All rights reserved'
+    @copyright =(ZacksViewTool::Renderer.copyright 'NomCrea', 'All rights reserved')
   end
   protected 
   def configure_permitted_parameters 
@@ -19,7 +19,7 @@ end
 module ZacksViewTool
   class Renderer
     def self.copyright name, msg
-      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+      ("<div class='center'>" + "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}" + "</div>").html_safe
     end
   end
 end
