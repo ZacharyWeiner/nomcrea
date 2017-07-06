@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   layout 'carousel'
   def home
     @portfolios = Portfolio.take(3)
+    @recent_portfolios = Portfolio.order(created_at: :desc).take(12)
   end 
 
   def my_portfolios
