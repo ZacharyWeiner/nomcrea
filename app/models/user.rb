@@ -15,4 +15,5 @@ class User < ApplicationRecord
   belongs_to :company, optional: true
   has_many :proposals 
   has_many :portfolios
+  mount_uploader :profile_image, ProfileImageUploader
 end
