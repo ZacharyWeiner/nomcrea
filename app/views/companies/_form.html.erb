@@ -3,7 +3,7 @@
     <div class='col-md-4'></div>
     <div class='col-md-4'>
 
-      <%= form_with(model: company, local: true) do |form| %>
+      <%= form_for [@company, @requirement] do |form| %>
       <% if company.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <label class='btn btn-primary btn-block'>
-        Upload Main Image <%= form.file_field :logo, style: 'display:none;' %>  
+          Upload Main Image <%= form.file_field :logo, style: 'display:none;' %>  
         </label>
       </div>
 <!-- 
@@ -37,12 +37,12 @@
     <%= form.text_field :users_id, id: :company_users_id %>
   </div> -->
 
-      <div class="actions">
-        <%= form.submit class: 'btn btn-primary' %>
-      </div>
-      <% end %>
-
-    </div>
-    <div class='col-md-4'></div>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
+  <% end %>
+
+</div>
+<div class='col-md-4'></div>
+</div>
 </div>  

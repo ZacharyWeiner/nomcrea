@@ -1,10 +1,11 @@
 class RequirementsController < ApplicationController
   before_action :set_requirement, only: [:show, :edit, :update, :destroy]
+  before_action :set_proposal, only: [:index, :new, :create, :show, :update]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
 
   # GET /requirements
   def index
-    @requirements = Requirement.all
+    @requirements = Requirement.where(proposal_id: @proposal.id)
   end
 
   # GET /requirements/1
@@ -23,9 +24,9 @@ class RequirementsController < ApplicationController
   # POST /requirements
   def create
     @requirement = Requirement.new(requirement_params)
-
+    @requirement.proposal = @proposal
     if @requirement.save
-      redirect_to @requirement, notice: 'Requirement was successfully created.'
+      redirect_to proposal_requirement_path(@proposal, @requirement), notice: 'Requirement was successfully created.'
     else
       render :new
     end
@@ -34,7 +35,8 @@ class RequirementsController < ApplicationController
   # PATCH/PUT /requirements/1
   def update
     if @requirement.update(requirement_params)
-      redirect_to @requirement, notice: 'Requirement was successfully updated.'
+      @requirement.proposal = @proposal
+      redirect_to proposal_requirement_path(@proposal, @requirement), notice: 'Requirement was successfully updated.'
     else
       render :edit
     end
@@ -55,5 +57,9 @@ class RequirementsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def requirement_params
       params.require(:requirement).permit(:title, :description, :accepted, :proposal_id)
+    end
+
+    def set_proposal
+      @proposal = Proposal.find(params[:proposal_id])
     end
 end

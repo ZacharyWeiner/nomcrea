@@ -20,9 +20,9 @@
         <td><%= requirement.description %></td>
         <td><%= requirement.accepted %></td>
         <td><%= requirement.proposal %></td>
-        <td><%= link_to 'Show', requirement %></td>
-        <td><%= link_to 'Edit', edit_requirement_path(requirement) %></td>
-        <td><%= link_to 'Destroy', requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', proposal_requirement_path(@proposal, requirement) %></td>
+        <td><%= link_to 'Edit', edit_proposal_requirement_path(@proposal, requirement) %></td>
+        <td><%= link_to 'Destroy', proposal_requirement_path(@proposal, requirement), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Requirement', new_requirement_path %>
+<%= link_to 'New Requirement', new_proposal_requirement_path(@proposal) %>

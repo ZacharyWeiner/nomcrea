@@ -1,4 +1,4 @@
-<%= form_with(model: requirement, local: true) do |form| %>
+ <%= form_for [@proposal, @requirement], url: new_proposal_requirement_path(@proposal, requirement) do |form| %>
   <% if requirement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(requirement.errors.count, "error") %> prohibited this requirement from being saved:</h2>

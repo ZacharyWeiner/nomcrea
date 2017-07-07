@@ -21,9 +21,12 @@
 
 <div class="container">
     <h4>Requirements</h4>
-<ul class="list-group">
-    <%= render @proposal.requirements %>
-</ul>
+    <div>
+      <%= link_to "New Requirement", new_proposal_requirement_path(@proposal), class: 'btn btn-primary' %>
+    </div>
+    <ul class="list-group">
+        <%= render @proposal.requirements %>
+    </ul>
   <%= link_to 'Edit', edit_proposal_path(@proposal) %> |
   <%= link_to 'Back', proposals_path %>
 </div>

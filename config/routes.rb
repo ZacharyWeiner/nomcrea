@@ -6,8 +6,10 @@ Rails.application.routes.draw do
       resources :portfolio_item_attachments
     end
   end
-  resources :requirements
-  resources :proposals
+  
+  resources :proposals do 
+    resources :requirements
+  end 
   resources :company_users
   devise_for :users
   resources :companies
