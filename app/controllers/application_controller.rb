@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
   before_action :set_copyright
 
   before_action :configure_permitted_parameters, if: :devise_controller? 
+  
   def set_copyright
     @copyright =(ZacksViewTool::Renderer.copyright 'NomCrea', 'All rights reserved')
   end
   protected 
   def configure_permitted_parameters 
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :display_name, :password])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :display_name, :current_password])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :display_name, :profile_image,  :password])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :display_name, :profile_image,  :password,  :current_password])
   end
 
   
