@@ -47,9 +47,22 @@ class ProposalRequestsController < ApplicationController
     @proposal_request.user = current_user
     @proposal_request.company = @proposal.company
     @proposal_request.proposal = @proposal
+    if current_user.company? 
+      @proposal_request.requested_by = 'company'
+    else
+      @proposal_request.requested_by = 'creative'
+    end 
     if @proposal_request.save
       redirect_to my_requests_path
     end
+  end 
+
+  def accept_request
+    set_proposal_request
+    @proposal_request.accepted = true
+    if @proposal_request.save  
+      redirect_to my_requests_path
+    end 
   end 
 
   # PATCH/PUT /proposal_requests/1

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/proposals/:id/add-proposal-request', to: 'proposal_requests#add_request'
   get 'select-role', to: 'pages#select_role'
   get 'assign-role', to: 'pages#assign_role'
+  get 'accept-request', to: 'proposal_requests#accept_request'
+  get 'accept-request/:id', to: 'proposal_requests#accept_request'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#home"
 end
