@@ -30,7 +30,6 @@ class ProposalsController < ApplicationController
     @proposal.user = current_user 
     @proposal.company = current_user.company
     if @proposal.save
-      byebug
       @proposal.requirements << create_requirements(@proposal)
       redirect_to @proposal, notice: 'Proposal was successfully created.'
     else
