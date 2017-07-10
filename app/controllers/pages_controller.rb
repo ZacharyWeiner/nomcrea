@@ -25,6 +25,7 @@ class PagesController < ApplicationController
 
   def my_requests
     @requests = ProposalRequest.where(user: current_user)
+    puts @requests.count
   end
 
   def proposal_selection
