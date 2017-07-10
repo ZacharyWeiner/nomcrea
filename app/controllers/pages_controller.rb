@@ -18,5 +18,9 @@ class PagesController < ApplicationController
     end 
   end 
 
+  def proposal_selection
+    @portfolios = Portfolio.take(3)
+    @recent_portfolios = Portfolio.order(created_at: :desc).take(12)
+  end 
   
 end 

@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
   layout 'proposals'
+  include ProposalsHelper
   # GET /proposals
   def index
     @proposals = Proposal.all
@@ -14,6 +15,9 @@ class ProposalsController < ApplicationController
   # GET /proposals/new
   def new
     @proposal = Proposal.new
+     if params[:query] != nil
+        set_proposal_type
+     end
   end
 
   # GET /proposals/1/edit
@@ -26,6 +30,8 @@ class ProposalsController < ApplicationController
     @proposal.user = current_user 
     @proposal.company = current_user.company
     if @proposal.save
+      byebug
+      @proposal.requirements << create_requirements(@proposal)
       redirect_to @proposal, notice: 'Proposal was successfully created.'
     else
       render :new
@@ -55,6 +61,21 @@ class ProposalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def proposal_params
-      params.require(:proposal).permit(:title, :content, :deadline, :price, :company_id, :user_id, :tag_list)
+      params.require(:proposal).permit(:title, :content, :deadline, :price, :proposal_type, :company_id, :user_id, :tag_list)
     end
+
+    def set_proposal_type
+      if params[:query] == 'photo'
+        @proposal.price = '5000.00'
+        @proposal.proposal_type = 'photo'
+      elsif params[:query] == 'video'
+        @proposal.price = '8000.00'
+        @proposal.proposal_type = 'video'
+      elsif params[:query] == 'drone'
+        @proposal.price = '1000.00'
+        @proposal.proposal_type = 'drone'
+      else
+        @proposal.price = '10000'
+      end
+    end 
 end
