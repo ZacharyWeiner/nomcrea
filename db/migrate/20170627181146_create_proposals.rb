@@ -5,6 +5,7 @@ class CreateProposals < ActiveRecord::Migration[5.1]
       t.string :content
       t.date :deadline
       t.integer :price
+      t.boolean :accepted, :default => false
       t.references :company, foreign_key: true
       t.references :user, foreign_key: true
 

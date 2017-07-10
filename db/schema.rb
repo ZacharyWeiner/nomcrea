@@ -68,11 +68,11 @@ ActiveRecord::Schema.define(version: 20170710151725) do
     t.string "content"
     t.date "deadline"
     t.integer "price"
+    t.boolean "accepted", default: false
     t.bigint "company_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "accepted"
     t.string "proposal_type"
     t.index ["company_id"], name: "index_proposals_on_company_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"

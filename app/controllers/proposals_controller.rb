@@ -5,7 +5,7 @@ class ProposalsController < ApplicationController
   include ProposalsHelper
   # GET /proposals
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.available
   end
 
   # GET /proposals/1
