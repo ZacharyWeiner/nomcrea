@@ -7,7 +7,7 @@
       <div class="card-block">
         <h4 class="card-title">You want stunning new brand images </h4>
         <p class="card-text">Nomcre will find you the best creatives to take stunning photgraphs</p>
-        <%= link_to "Create Proposal", :action=> "new", :controller => "proposals", :query => "photo", class: 'btn btn-primary' %>
+        <%= link_to "Create Proposal", {:action=> "new", :controller => "proposals", :query => "photo"}, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
       <div class="card-block">
         <h4 class="card-title">You want stunning new brand videos </h4>
         <p class="card-text">Nomcre will find you the best creatives to craft stunning videos</p>
-        <%= link_to "Create Proposal", :action=> "new", :controller => "proposals", :query => "video", class: 'btn btn-primary' %>
+        <%= link_to "Create Proposal", {:action=> "new", :controller => "proposals", :query => "video"}, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
       <div class="card-block">
         <h4 class="card-title">You want stunning new Drone Footage </h4>
         <p class="card-text">Nomcre will find you the best pilots to take stunning footie!</p>
-        <%= link_to "Create Proposal", :action=> "new", :controller => "proposals", :query => "drone", class: 'btn btn-primary' %>
+        <%= link_to "Create Proposal", {:action=> "new", :controller => "proposals", :query => "drone"}, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
