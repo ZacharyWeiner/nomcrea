@@ -14,6 +14,9 @@
 //= require jquery3
 //= require rails-ujs
 //= require jquery-ui
-//= require bootstrap
 //= require turbolinks
+//= require popper
 //= require_tree .
+//= require bootstrap
+
+

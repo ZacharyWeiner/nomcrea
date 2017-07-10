@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   layout 'carousel'
   def home
     if current_user 
-      byebug
       if !current_user.has_roles?(:company) && !current_user.has_roles?(:creative)
         redirect_to select_role_path
       end
