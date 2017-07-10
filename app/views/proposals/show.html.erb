@@ -6,7 +6,11 @@
     <p class="lead text-muted"><%= number_to_currency(@proposal.price, precision: 0) %> USD</p>
     
     <p>
-      <a href="#" class="btn btn-primary">Request Job</a>
+      <% if @requests.count == 0 %>
+        <%= link_to "Request Job", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary' %>
+      <% else %>
+      <%= link_to "Job Requested", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary disabled' %>
+      <% end %>
       <a href="#" class="btn btn-secondary">Message Owner</a>
     </p>
   </div>

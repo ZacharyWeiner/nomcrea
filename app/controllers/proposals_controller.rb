@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  layout 'proposals'
+  layout 'carousel'
   include ProposalsHelper
   # GET /proposals
   def index
@@ -10,6 +10,8 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/1
   def show
+    @requests = @proposal.proposal_requests.where(user: current_user)
+    byebug
   end
 
   # GET /proposals/new

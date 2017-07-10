@@ -1,0 +1,24 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6'> 
+      <div class="card text-center" > 
+        <div class="card-header">
+          I Am A Company 
+        </div>
+        <div class="card-block">
+          <%= link_to "Create First Proposal", {:action=> "assign_role", :controller => "pages", :query => "company"}, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'> 
+      <div class="card text-center" > 
+        <div class="card-header">
+          I Am A Creative 
+        </div>
+        <div class="card-block">
+          <%= link_to "Show Me Work", {:action=> "assign_role", :controller => "pages", :query => "creative"}, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

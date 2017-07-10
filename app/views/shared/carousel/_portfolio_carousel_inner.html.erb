@@ -1,11 +1,9 @@
 <% @portfolios_count = 0 %>
-<% puts "Portfolio Count: #{@portfolios.count}" %>
 <% @numbers = ['first', 'second', 'third']%>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <%= slide_count_list @portfolios %>
   <div class="carousel-inner" role="listbox">
     <% @portfolios.each do |portfolio| %>
-    <% puts "Portfolio" + @numbers[@portfolios_count] %>
     <div class="carousel-item <%= 'active 'if @portfolios_count ==0 %>">
       <img class="<%= @numbers[@portfolios_count] %>-slide" src="<%= portfolio.safe_cover_image %>" alt="<%= @numbers[@portfolios_count] %> slide">
       <div class="container">
