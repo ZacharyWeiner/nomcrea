@@ -28,6 +28,11 @@ class ProposalRequestsController < ApplicationController
     @proposal_request.user = current_user
     @proposal_request.company = @proposal.company
     @proposal_request.proposal = @proposal
+    if current_user.company? 
+      @proposal_request.requested_by = 'company'
+    else
+      @proposal_request.requested_by = 'creative'
+    end 
     if @proposal_request.save
       redirect_to @proposal_request, notice: 'Proposal request was successfully created.'
     else
