@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Proposal:</strong>
+  <%= @proposal_request.proposal %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @proposal_request.user %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @proposal_request.accepted %>
+</p>
+
+<p>
+  <strong>Accepted on:</strong>
+  <%= @proposal_request.accepted_on %>
+</p>
+
+<%= link_to 'Edit', edit_proposal_request_path(@proposal_request) %> |
+<%= link_to 'Back', proposal_requests_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710141825) do
+ActiveRecord::Schema.define(version: 20170710151725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 20170710141825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_portfolios_on_user_id"
+  end
+
+  create_table "proposal_requests", force: :cascade do |t|
+    t.bigint "proposal_id"
+    t.bigint "user_id"
+    t.boolean "accepted"
+    t.date "accepted_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_proposal_requests_on_company_id"
+    t.index ["proposal_id"], name: "index_proposal_requests_on_proposal_id"
+    t.index ["user_id"], name: "index_proposal_requests_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -125,6 +138,9 @@ ActiveRecord::Schema.define(version: 20170710141825) do
   add_foreign_key "portfolio_item_attachments", "portfolio_items"
   add_foreign_key "portfolio_items", "portfolios"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "proposal_requests", "companies"
+  add_foreign_key "proposal_requests", "proposals"
+  add_foreign_key "proposal_requests", "users"
   add_foreign_key "proposals", "companies"
   add_foreign_key "proposals", "users"
   add_foreign_key "requirements", "proposals"

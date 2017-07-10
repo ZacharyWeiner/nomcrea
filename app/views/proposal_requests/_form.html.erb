@@ -1,0 +1,37 @@
+<%= form_with(model: proposal_request, local: true) do |form| %>
+  <% if proposal_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proposal_request.errors.count, "error") %> prohibited this proposal_request from being saved:</h2>
+
+      <ul>
+      <% proposal_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :proposal_id %>
+    <%= form.text_field :proposal_id, id: :proposal_request_proposal_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :proposal_request_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepted %>
+    <%= form.text_field :accepted, id: :proposal_request_accepted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepted_on %>
+    <%= form.date_select :accepted_on, id: :proposal_request_accepted_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

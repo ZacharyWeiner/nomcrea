@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proposal: one
+  user: one
+  accepted: 
+  accepted_on: 2017-07-10
+
+two:
+  proposal: two
+  user: two
+  accepted: 
+  accepted_on: 2017-07-10

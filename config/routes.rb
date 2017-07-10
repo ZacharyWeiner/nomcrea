@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :proposal_requests
   resources :portfolios do 
     resources :portfolio_items do 
       resources :portfolio_item_attachments

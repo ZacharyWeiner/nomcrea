@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Proposal Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proposal</th>
+      <th>User</th>
+      <th>Accepted</th>
+      <th>Accepted on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposal_requests.each do |proposal_request| %>
+      <tr>
+        <td><%= proposal_request.proposal %></td>
+        <td><%= proposal_request.user %></td>
+        <td><%= proposal_request.accepted %></td>
+        <td><%= proposal_request.accepted_on %></td>
+        <td><%= link_to 'Show', proposal_request %></td>
+        <td><%= link_to 'Edit', edit_proposal_request_path(proposal_request) %></td>
+        <td><%= link_to 'Destroy', proposal_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proposal Request', new_proposal_request_path %>
