@@ -1,7 +1,6 @@
 module ProposalsHelper
 
   def create_requirements(proposal)
-    byebug
     if proposal.proposal_type == 'photo'
       create_photo_tasks(proposal)
     elsif proposal.proposal_type == 'video'

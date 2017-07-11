@@ -11,7 +11,6 @@ class ProposalsController < ApplicationController
   # GET /proposals/1
   def show
     @requests = @proposal.proposal_requests.where(user: current_user)
-    byebug
   end
 
   # GET /proposals/new
