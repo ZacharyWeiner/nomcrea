@@ -9,7 +9,10 @@
 </li>
 <% else%>
 <li class="nav-item center">
-  <%= link_to 'My Company', edit_company_path(current_user.company), class: 'dropdown-color' %>
+  <%= link_to 'Completed Work', {:action=> "my_proposals", :controller => "pages", :query => "completed"}, class: 'dropdown-color' %>
+</li>
+<li class="nav-item center">
+  <%= link_to 'Company Profile', edit_company_path(current_user.company), class: 'dropdown-color' %>
 </li>
 <% end %>
 <li class='nav-item center'>

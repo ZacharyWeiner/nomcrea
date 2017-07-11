@@ -16,11 +16,19 @@ class PagesController < ApplicationController
   end
 
   def my_proposals
-    if current_user.company 
+    if params[:query] == 'completed'
+       if current_user.company 
+        @proposals = Proposal.completed.where(company_id: current_user.company_id)
+      else 
+        @proposals = Proposal.completed.where(user_id: current_user.id)
+      end 
+    else
+      if current_user.company 
         @proposals = Proposal.where(company_id: current_user.company_id)
-    else 
-      @proposals = Proposal.where(user_id: current_user.id)
-    end 
+      else 
+        @proposals = Proposal.where(user_id: current_user.id)
+      end 
+    end
   end 
 
   def my_requests

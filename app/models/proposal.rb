@@ -7,5 +7,6 @@ class Proposal < ApplicationRecord
   acts_as_taggable_on :skills
 
   scope :available, -> {where(accepted: false)}
+  scope :completed, -> {where(completed: true)}
   
 end

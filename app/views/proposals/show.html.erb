@@ -6,22 +6,30 @@
     <p class="lead text-muted"><%= number_to_currency(@proposal.price, precision: 0) %> USD</p>
     
     <p>
-      <% if @requests.count == 0 %>
+      <% if current_user && current_user.has_roles?(:creative) %>
+      <% if @requests && @requests.count == 0 %>
         <%= link_to "Request Job", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary' %>
       <% else %>
       <%= link_to "Job Requested", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary disabled' %>
       <% end %>
       <a href="#" class="btn btn-secondary">Message Owner</a>
+      <% end %>
     </p>
   </div>
 
   
 </section>
 
-<p>
-  <h2><%= @proposal.title %></h2>
-  
-</p>
+<div class='row'>
+  <div class='col-md-4'></div>
+  <div class='col-md-4'>
+     <h2><%= @proposal.title %></h2>
+    <p><%= @proposal.deadline %></p>
+    <p><%= @proposal.content %></p>
+  </div>
+  <div class='col-md-4'></div>
+ 
+</div>
 
 <div class="container">
     <h4>Requirements</h4>
