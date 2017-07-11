@@ -7,6 +7,10 @@
 <li class="nav-item center">
   <%= link_to 'My Portfolios', my_portfolios_path, class: 'dropdown-color' %>
 </li>
+<% else%>
+<li class="nav-item center">
+  <%= link_to 'My Company', edit_company_path(current_user.company), class: 'dropdown-color' %>
+</li>
 <% end %>
 <li class='nav-item center'>
   <%= link_to 'My Profile', edit_user_registration_path, class: 'dropdown-color' %>

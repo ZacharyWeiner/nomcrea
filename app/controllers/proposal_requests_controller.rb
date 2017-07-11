@@ -42,12 +42,11 @@ class ProposalRequestsController < ApplicationController
   end
 
   def add_request
-    byebug
     @proposal_request = ProposalRequest.new
     @proposal_request.user = current_user
     @proposal_request.company = @proposal.company
     @proposal_request.proposal = @proposal
-    if current_user.company? 
+    if current_user.company == nil
       @proposal_request.requested_by = 'company'
     else
       @proposal_request.requested_by = 'creative'
