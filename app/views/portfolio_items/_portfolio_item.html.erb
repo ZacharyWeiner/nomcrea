@@ -3,7 +3,9 @@
     <h3 class='card-title'><%= portfolio_item.title %></h3>
     <p class='card-text'><%= portfolio_item.description %></p>
       <%= link_to 'Show', portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-primary'%>
+      <% if portfolio_item.portfolio.user == current_user %>
       <%= link_to 'Edit', edit_portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-warning' %>
-      <%= link_to 'Destroy', [portfolio_item.portfolio, portfolio_item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      
+      <% end %>
   </div>
   </div>

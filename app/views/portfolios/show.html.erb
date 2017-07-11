@@ -13,6 +13,8 @@
 
 <div class="container">
     <h4>Items</h4>
+    <%= link_to "New Collection", new_portfolio_portfolio_item_path(@portfolio), class: 'btn btn-primary' %>
+    <%= link_to 'Delete Portfolio', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger right' %>
     <div class='row'> 
     <%= render @portfolio.portfolio_items %>
     </div>

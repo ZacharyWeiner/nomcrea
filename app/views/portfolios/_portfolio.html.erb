@@ -6,8 +6,9 @@
   <div class="card-block">
     <h3 class='card-title'><%= portfolio.title %></h3>
       <%= link_to 'Show', portfolio, class: 'btn btn-primary'%>
+      <% if portfolio.user == current_user %>
       <%= link_to 'Edit', edit_portfolio_path(portfolio), class: 'btn btn-warning' %>
-      <%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
   </div>
   </div>
 

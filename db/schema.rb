@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20170710201321) do
   end
 
   add_foreign_key "portfolio_item_attachments", "portfolio_items"
-  add_foreign_key "portfolio_items", "portfolios"
+  add_foreign_key "portfolio_items", "portfolios", on_delete: :cascade
   add_foreign_key "portfolios", "users"
   add_foreign_key "proposal_requests", "companies"
   add_foreign_key "proposal_requests", "proposals"

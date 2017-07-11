@@ -18,7 +18,7 @@
 
   <div class="form-group">
    <label class='btn btn-primary btn-block'>
-      Upload Cover Image <%= form.file_field :cover_image, style: 'display:none;' %>  
+      Add Cover Image <%= form.file_field :cover_image, style: 'display:none;' %>  
     </label>
   </div>
 
@@ -28,6 +28,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.submit "Create Collection", class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>

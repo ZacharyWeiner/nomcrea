@@ -2,6 +2,7 @@ class PortfolioItemsController < ApplicationController
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
   layout 'carousel'
+
   # GET /portfolio_items
   def index
     @portfolio_items = PortfolioItem.where(portfolio_id: params[:portfolio_id])
@@ -47,7 +48,7 @@ class PortfolioItemsController < ApplicationController
   def destroy
     @portfolio = @portfolio_item.portfolio
     @portfolio_item.destroy
-    redirect_to portfolio_portfolio_items_url(@portfolio), notice: 'Portfolio item was successfully destroyed.'
+    redirect_to portfolio_url(@portfolio), notice: 'Portfolio item was successfully destroyed.'
   end
 
   private
