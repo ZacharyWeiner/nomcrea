@@ -10,8 +10,12 @@
     </p>
   </div>
 </section>
-
-
+<% if current_user && current_user.has_roles?(:company) %>
+<div class='container'>
+<%= link_to 'New Proposal', new_proposal_path, class: 'btn btn-primary right' %>
+</div>
+<br>
+<% end %>
 <div class="album text-muted">
   <div class="container">
     <div class="row">
@@ -21,4 +25,3 @@
 </div>
 
 
-<%= link_to 'New Proposal', new_proposal_path %>
