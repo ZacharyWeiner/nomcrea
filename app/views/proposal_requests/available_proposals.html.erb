@@ -1,0 +1,31 @@
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Proposals In Need Of A Creative</h1>
+  </div>
+
+  
+</section>
+<div class='container border-1'>
+  <ul>
+    <% @proposals.each do |proposal| %>
+  <li class="list-group-item">
+    <div class='row'> 
+      <div class='col-md-8'>
+        <div><%= proposal.title %></div>
+      </div>
+      <div class='col-md-4'>
+        <% unless proposal.proposal_requests.any? {|p| p.user_id == @creative.id}%>
+        <% @params = {creative_id: @creative.id , proposal_id: proposal.id}.to_query %>
+        <%= link_to 'Request Creative', {:action=> "add_request", :controller => "proposal_requests", :query => @params}, class: 'btn btn-primary' %>
+        <% else %>
+          <%= link_to 'Requested', {:action=> "add_request", :controller => "proposal_requests", :query => @params}, class: 'btn btn-warning disabled' %>
+        <% end %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+  </ul>
+</div>
+
+

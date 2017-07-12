@@ -5,6 +5,8 @@
     </div>
     <div class="card-block">
       <h3 class='card-title'><%= proposal_request.proposal.title %></h3>
+      <p> <%= proposal_request.user.email %> </p>
+      <br/>
       <% if proposal_request.requested_by == 'company' %>
         <% if proposal_request.accepted == nil%>
           <%= link_to "Accept",  {:action=> "accept_request", :controller => "proposal_requests"}, class: 'btn btn-warning' %>

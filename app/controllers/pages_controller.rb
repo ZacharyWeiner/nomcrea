@@ -32,7 +32,11 @@ class PagesController < ApplicationController
   end 
 
   def my_requests
-    @requests = ProposalRequest.where(user: current_user)
+    if current_user.has_role?(:creative)
+      @requests = ProposalRequest.where(user: current_user)
+    else
+      @requests = ProposalRequest.where(company: current_user.company) 
+    end 
     puts @requests.count
   end
 

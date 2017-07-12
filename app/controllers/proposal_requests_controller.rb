@@ -2,7 +2,7 @@ class ProposalRequestsController < ApplicationController
   before_action :set_proposal_request, only: [:show, :edit, :update, :destroy]
   before_action :set_proposal, only: [:new, :create, :add_request]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-
+  layout 'carousel'
   # GET /proposal_requests
   def index
     @proposal_requests = ProposalRequest.all
@@ -36,14 +36,19 @@ class ProposalRequestsController < ApplicationController
     if @proposal_request.save
       redirect_to @proposal_request, notice: 'Proposal request was successfully created.'
     else
-      byebug
       render :new
     end
   end
 
   def add_request
     @proposal_request = ProposalRequest.new
-    @proposal_request.user = current_user
+    if current_user.company
+      query_string = CGI.parse(params[:query])
+      @proposal_request.user = User.find(query_string['creative_id'].first.to_i)
+    else 
+      @proposal_request.user = current_user
+    end
+    
     @proposal_request.company = @proposal.company
     @proposal_request.proposal = @proposal
     if current_user.company == nil
@@ -62,6 +67,14 @@ class ProposalRequestsController < ApplicationController
     if @proposal_request.save  
       redirect_to my_requests_path
     end 
+  end 
+
+  def available_proposals
+
+    query_string = CGI.parse(params[:query])
+    @creative = User.find(query_string['creative_id'].first )
+    @proposals = Proposal.where(company: current_user.company).where(accepted: false)
+      #render layout: 'modal'
   end 
 
   # PATCH/PUT /proposal_requests/1
@@ -91,6 +104,12 @@ class ProposalRequestsController < ApplicationController
     end
 
     def set_proposal
-      @proposal = Proposal.find(params[:id])
+      if params[:id]
+        @proposal = Proposal.find(params[:id])
+      else 
+        query_string = CGI.parse(params[:query])
+        proposal_id = query_string['proposal_id'].first.to_i
+        @proposal = Proposal.find(proposal_id)
+      end 
     end 
 end
