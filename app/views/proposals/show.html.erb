@@ -3,6 +3,11 @@
   <div class="container">
     <h1 class="jumbotron-heading"><%= @proposal.company.name %></h1>
     <p class="lead text-muted"><%= @proposal.deadline %></p>
+    <% if @proposal.completed %>
+      <p class="lead text-muted">Completed</p>
+    <% else %>
+      <p class="lead text-muted"><%= @proposal.deadline %></p>
+    <% end %>
     <p class="lead text-muted"><%= number_to_currency(@proposal.price, precision: 0) %> USD</p>
     
     <p>

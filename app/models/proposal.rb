@@ -9,4 +9,15 @@ class Proposal < ApplicationRecord
   scope :available, -> {where(accepted: false)}
   scope :completed, -> {where(completed: true)}
   
+
+  def is_complete
+    if !self.completed 
+      incomplete = self.requirements.where(accepted: 0)
+      if incomplete.count == 0
+        self.completed = true
+        self.completed_on = Date.today 
+        self.save
+      end
+    end
+  end
 end

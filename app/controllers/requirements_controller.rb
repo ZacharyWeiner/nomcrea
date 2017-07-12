@@ -1,6 +1,6 @@
 class RequirementsController < ApplicationController
-  before_action :set_requirement, only: [:show, :edit, :update, :destroy]
-  before_action :set_proposal, only: [:index, :new, :create, :show, :update]
+  before_action :set_requirement, only: [:show, :edit, :update, :destroy, :accept_requirement]
+  before_action :set_proposal, only: [:index, :new, :create, :show, :update, :accept_requirement]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
 
   # GET /requirements
@@ -47,6 +47,17 @@ class RequirementsController < ApplicationController
     @requirement.destroy
     redirect_to requirements_url, notice: 'Requirement was successfully destroyed.'
   end
+
+  def accept_requirement
+    @requirement.accepted = 1
+    if @requirement.save
+      @proposal.is_complete
+      byebug
+      redirect_to proposal_path(@proposal), notice: 'Requirement has been accepted.'
+    else
+      render :new
+    end
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

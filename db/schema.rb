@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20170711184459) do
   create_table "requirements", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "accepted"
+    t.integer "accepted", default: 0
     t.bigint "proposal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20170711184459) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "portfolio_item_attachments", "portfolio_items"
-  add_foreign_key "portfolio_items", "portfolios", on_delete: :cascade
+  add_foreign_key "portfolio_item_attachments", "portfolio_items", on_delete: :cascade
+  add_foreign_key "portfolio_items", "portfolios"
   add_foreign_key "portfolios", "users"
   add_foreign_key "proposal_requests", "companies"
   add_foreign_key "proposal_requests", "proposals"

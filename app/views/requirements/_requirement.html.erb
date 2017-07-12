@@ -1,5 +1,16 @@
 <li class="list-group-item">
-  <div><%= requirement.title %></div>
-  <small><%= requirement.description %></small>
+  <div class='row'> 
+    <div class='col-md-8'>
+      <div><%= requirement.title %></div>
+      <small><%= requirement.description %></small>
+    </div>
+    <div class='col-md-4'>
+      <% if requirement.accepted? %>
+      <%= link_to 'Accepted', proposal_accept_requirement_path(@proposal, requirement), class: 'btn btn-warning disabled'  %>
+      <% else %>
+      <%= link_to 'Accept', proposal_accept_requirement_path(@proposal, requirement), class: 'btn btn-warning'  %>
+      <% end %>
+    </div>
+  </div>
 </li>
 

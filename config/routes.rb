@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   resources :proposals do 
     resources :requirements
+    get 'accept-requirement/:id', to: 'requirements#accept_requirement', as: 'accept-requirement'
     resources :proposal_requests
   end 
   resources :company_users
