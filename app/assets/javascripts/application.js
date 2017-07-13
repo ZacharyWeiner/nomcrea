@@ -14,9 +14,15 @@
 //= require jquery3
 //= require rails-ujs
 //= require jquery-ui
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
 //= require turbolinks
 //= require popper
 //= require_tree .
 //= require bootstrap
+//= require select
 
 
+$(function() {
+  $('.input-row #post_topics_list, .input-row #post_tags_list').select({tags:[]})
+});

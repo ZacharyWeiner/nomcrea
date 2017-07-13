@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
   layout 'carousel'
+
   include ProposalsHelper
   # GET /proposals
   def index
@@ -41,6 +42,7 @@ class ProposalsController < ApplicationController
   # PATCH/PUT /proposals/1
   def update
     if @proposal.update(proposal_params)
+      byebug
       redirect_to @proposal, notice: 'Proposal was successfully updated.'
     else
       render :edit
@@ -61,7 +63,7 @@ class ProposalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def proposal_params
-      params.require(:proposal).permit(:title, :content, :deadline, :price, :proposal_type, :company_id, :user_id, :tag_list)
+      params.require(:proposal).permit(:title, :content, :deadline, :price, :proposal_type, :company_id, :user_id)
     end
 
     def set_proposal_type

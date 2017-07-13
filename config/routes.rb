@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   resources :portfolios do 
     resources :portfolio_items do 
       resources :portfolio_item_attachments
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   end
   
   resources :proposals do 
+    get :autocomplete_skill, :on => :collection
     resources :requirements
     get 'accept-requirement/:id', to: 'requirements#accept_requirement', as: 'accept-requirement'
     resources :proposal_requests

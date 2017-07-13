@@ -3,9 +3,7 @@ class Proposal < ApplicationRecord
   belongs_to :user, optional: true
   has_many :requirements
   has_many :proposal_requests
-
-  acts_as_taggable_on :skills
-
+  has_and_belongs_to_many :tags
   scope :available, -> {where(accepted: false)}
   scope :completed, -> {where(completed: true)}
   

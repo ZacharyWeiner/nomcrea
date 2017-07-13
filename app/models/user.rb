@@ -16,5 +16,6 @@ class User < ApplicationRecord
   has_many :proposals 
   has_many :portfolios
   has_many :proposal_requests
+  has_and_belongs_to_many :tags
   mount_uploader :profile_image, ProfileImageUploader
 end
