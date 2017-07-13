@@ -73,6 +73,31 @@ nomCrea2.portfolios << nomCrea2Portfolio2
 puts 'Portfolio Items Created For User: creative2@nomcrea.com Portfolio 2'
 
 
+puts 'Creating Tags'
+
+Tag.create!(name: 'beach')
+Tag.create!(name: 'sunset')
+Tag.create!(name: 'sunrise')
+Tag.create!(name: 'photography')
+Tag.create!(name: 'videography')
+Tag.create!(name: 'drone')
+Tag.create!(name: 'asia')
+Tag.create!(name: 'thailand')
+Tag.create!(name: 'chang mai')
+Tag.create!(name: 'bangkok')
+Tag.create!(name: 'china')
+Tag.create!(name: 'shanghai')
+Tag.create!(name: 'beijing')
+Tag.create!(name: 'hongkong')
+Tag.create!(name: 'europe')
+Tag.create!(name: 'england')
+Tag.create!(name: 'london')
+Tag.create!(name: 'france')
+Tag.create!(name: 'paris')
+Tag.create!(name: 'north america')
+Tag.create!(name: 'united states')
+Tag.create!(name: 'new york city')
+puts 'End Creating Tags'
 
 
 

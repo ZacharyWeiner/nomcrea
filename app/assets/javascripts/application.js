@@ -14,7 +14,6 @@
 //= require jquery3
 //= require rails-ujs
 //= require jquery-ui
-//= require jquery-ui/widgets/autocomplete
 //= require autocomplete-rails
 //= require turbolinks
 //= require popper
