@@ -11,10 +11,10 @@
     <% @proposals.each do |proposal| %>
   <li class="list-group-item">
     <div class='row'> 
-      <div class='col-md-8'>
+      <div class='col-md-10'>
         <div><%= proposal.title %></div>
       </div>
-      <div class='col-md-4'>
+      <div class='col-md-2'>
         <% unless proposal.proposal_requests.any? {|p| p.user_id == @creative.id}%>
         <% @params = {creative_id: @creative.id , proposal_id: proposal.id}.to_query %>
         <%= link_to 'Request Creative', {:action=> "add_request", :controller => "proposal_requests", :query => @params}, class: 'btn btn-primary' %>
