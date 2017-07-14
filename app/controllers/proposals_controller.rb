@@ -41,6 +41,7 @@ class ProposalsController < ApplicationController
     @proposal.company = current_user.company
     if @proposal.save
       @proposal.requirements << create_requirements(@proposal)
+      update_tags
       redirect_to @proposal, notice: 'Proposal was successfully created.'
     else
       render :new
@@ -50,23 +51,7 @@ class ProposalsController < ApplicationController
   # PATCH/PUT /proposals/1
   def update
     if @proposal.update(proposal_params)
-      tag_ids= [] 
-      
-      params[:proposal][:scenes].collect{ |scene_id|
-        if scene_id != "" 
-          tag_ids << scene_id.to_i
-        end 
-      }
- 
-      tag_ids << params[:proposal][:location].to_i
-      params[:proposal][:skills].collect{ |skill_id|
-        if skill_id != "" 
-          tag_ids << skill_id.to_i
-        end 
-      }
-      @proposal.tags.clear
-      @proposal.tags = Tag.where(id: tag_ids)
-
+      update_tags
       byebug
       redirect_to @proposal, notice: 'Proposal was successfully updated.'
     else
@@ -104,6 +89,23 @@ class ProposalsController < ApplicationController
         end 
       end
     end
+
+    def update_tags
+      tag_ids= [] 
+      params[:proposal][:scenes].collect{ |scene_id|
+        if scene_id != "" 
+          tag_ids << scene_id.to_i
+        end 
+      }
+      tag_ids << params[:proposal][:location].to_i
+      params[:proposal][:skills].collect{ |skill_id|
+        if skill_id != "" 
+          tag_ids << skill_id.to_i
+        end 
+      }
+      @proposal.tags.clear
+      @proposal.tags = Tag.where(id: tag_ids)
+    end 
 
     def set_proposal_type
       if params[:query] == 'photo'
