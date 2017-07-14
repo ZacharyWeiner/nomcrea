@@ -31,13 +31,23 @@
     <%= form.label :price %>
     <%= form.text_field :price, id: :proposal_price, :readonly => true, class: 'form-control' %>
   </div>
-  <div class="form-group">
-    <%= form.label :tags %>
-    <%= form.select :tags, @tags, {prompt: false},
-      {:multiple => true, class: "form-control"} %>
-
-
-  </div> 
+  <div class='row'>
+    <div class="col-md-4">
+      <%= form.label :skills %>
+      <%= form.select :skills, @skills, {prompt: false},
+        {:multiple => true, class: "form-control"} %>
+    </div> 
+    <div class="col-md-4">
+      <%= form.label :location %>
+      <%= form.select :location, @locations, {prompt: false},
+        {:multiple => false, class: "form-control"} %>
+    </div> 
+    <div class="col-md-4">
+      <%= form.label :scenes %>
+      <%= form.select :scenes, @scenes, {prompt: false},
+        {:multiple => true, class: "form-control"} %>
+    </div> 
+  </div>
   
 
   <div class="form-group">

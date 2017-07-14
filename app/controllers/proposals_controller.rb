@@ -17,10 +17,9 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/new
   def new
-     @tags = []
-    Tag.all.map do |m| 
-      @tags << [m.name, m.id] 
-    end 
+    @skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
+    set_locations
+    @scenes = Tag.where(tag_type: 'scene').collect{|p| [p.name, p.id]}
     @proposal = Proposal.new
      if params[:query] != nil
         set_proposal_type
@@ -29,7 +28,10 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/1/edit
   def edit
-    @tags = Tag.all.collect{ |p| [p.name, p.id]}
+    @skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
+    set_locations
+    @scenes = Tag.where(tag_type: 'scene').collect{|p| [p.name, p.id]}
+    
   end
 
   # POST /proposals
@@ -48,6 +50,23 @@ class ProposalsController < ApplicationController
   # PATCH/PUT /proposals/1
   def update
     if @proposal.update(proposal_params)
+      tag_ids= [] 
+      
+      params[:proposal][:scenes].collect{ |scene_id|
+        if scene_id != "" 
+          tag_ids << scene_id.to_i
+        end 
+      }
+ 
+      tag_ids << params[:proposal][:location].to_i
+      params[:proposal][:skills].collect{ |skill_id|
+        if skill_id != "" 
+          tag_ids << skill_id.to_i
+        end 
+      }
+      @proposal.tags.clear
+      @proposal.tags = Tag.where(id: tag_ids)
+
       byebug
       redirect_to @proposal, notice: 'Proposal was successfully updated.'
     else
@@ -70,6 +89,20 @@ class ProposalsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def proposal_params
       params.require(:proposal).permit(:title, :content, :deadline, :price, :proposal_type, :company_id, :user_id)
+    end
+
+    def set_locations
+      regions = Tag.where(tag_type: ['region'])
+      @locations= []
+      regions.collect do |region|
+        @locations << [region.name, region.id]
+        Tag.where(parent_id: region.id).each do |country|
+          @locations << ["." + country.name, country.id]
+          Tag.where(parent_id: country.id).each do |city|
+            @locations << [".." + city.name, city.id]
+          end 
+        end 
+      end
     end
 
     def set_proposal_type
