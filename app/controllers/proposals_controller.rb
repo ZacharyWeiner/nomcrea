@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
   layout 'carousel'
+  autocomplete :tag, :name
 
   include ProposalsHelper
   # GET /proposals
@@ -16,6 +17,10 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/new
   def new
+     @tags = []
+    Tag.all.map do |m| 
+      @tags << [m.name, m.id] 
+    end 
     @proposal = Proposal.new
      if params[:query] != nil
         set_proposal_type
@@ -24,6 +29,7 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/1/edit
   def edit
+    @tags = Tag.all.collect{ |p| [p.name, p.id]}
   end
 
   # POST /proposals

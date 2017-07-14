@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713201737) do
+ActiveRecord::Schema.define(version: 20170714003031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(version: 20170713201737) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tag_type"
+    t.integer "parent_id"
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 

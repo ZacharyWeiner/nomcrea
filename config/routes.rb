@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   
   resources :proposals do 
-    get :autocomplete_skill, :on => :collection
+    get :autocomplete_tag_name, :on => :collection
     resources :requirements
     get 'accept-requirement/:id', to: 'requirements#accept_requirement', as: 'accept-requirement'
     resources :proposal_requests

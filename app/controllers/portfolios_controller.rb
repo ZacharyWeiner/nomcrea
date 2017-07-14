@@ -15,10 +15,12 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
+    @tags = Tag.all
   end
 
   # GET /portfolios/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /portfolios

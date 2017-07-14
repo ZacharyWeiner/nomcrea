@@ -13,6 +13,7 @@
 //= require bootstrap-sprockets
 //= require jquery3
 //= require rails-ujs
+//= require jquery-ui/widgets/autocomplete
 //= require jquery-ui
 //= require autocomplete-rails
 //= require turbolinks
