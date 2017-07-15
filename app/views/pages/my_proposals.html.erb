@@ -15,7 +15,7 @@
     <div class='col-md-11'></div>
     <div class='col-md-1'>
       <% if current_user && current_user.has_roles?(:company)%>
-      <%= link_to 'New Proposal', proposal_selection_path, class: 'btn btn-warning right' %>
+      <%= link_to 'New Proposal', proposal_selection_path, class: 'btn btn-warning right',data: { turbolinks: false } %>
       <% end %>
     </div>
   </div>

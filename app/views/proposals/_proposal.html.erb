@@ -6,7 +6,7 @@
   <div class="card-block">
     <h3 class='card-title'><%= proposal.title %></h3>
     <p class="card-text"><%= proposal.deadline.to_s %></p>
-    <%= link_to 'Check It', proposal, class: "btn btn-primary" %>
+    <%= link_to 'Check It', proposal, class: "btn btn-primary", data: { turbolinks: false } %>
   </div>
 </div>
 </div>
