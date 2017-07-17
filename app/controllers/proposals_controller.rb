@@ -33,6 +33,7 @@ class ProposalsController < ApplicationController
     @skills = Tag.where(tag_type: 'skill')
     set_locations
     @scenes = Tag.where(tag_type: 'scene')
+    
 
     @proposal_skills= @proposal.tags.where(tag_type:'skill').pluck(:id)
     puts @proposal_skills

@@ -19,6 +19,7 @@ class Proposal < ApplicationRecord
   def scenes
     self.tags.scenes
   end
+  
 
   def is_complete
     if !self.completed 
