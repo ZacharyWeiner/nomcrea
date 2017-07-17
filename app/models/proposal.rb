@@ -13,7 +13,7 @@ class Proposal < ApplicationRecord
   end 
 
   def location
-    self.tags.locations
+    self.tags.locations.first
   end 
 
   def scenes
