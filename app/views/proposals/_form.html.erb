@@ -40,7 +40,8 @@
     </div> 
     <div class="col-md-4">
       <%= form.label :location %>
-      <%= form.select :location, options_for_select(@locations, :selected => @proposal.location),
+
+      <%= form.select :location, options_for_select(@locations, @proposal.location.id),
         {:multiple => false, class: "form-control"} %>
     </div> 
     <div class="col-md-4">
