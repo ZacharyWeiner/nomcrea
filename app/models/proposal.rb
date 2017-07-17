@@ -8,6 +8,18 @@ class Proposal < ApplicationRecord
   scope :completed, -> {where(completed: true)}
   
 
+  def skills 
+    self.tags.where(tag_type: 'skill')
+  end 
+
+  def location
+    self.tags.locations
+  end 
+
+  def scenes
+    self.tags.scenes
+  end
+
   def is_complete
     if !self.completed 
       incomplete = self.requirements.where(accepted: 0)

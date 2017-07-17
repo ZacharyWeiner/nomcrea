@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Schedule Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item type</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Tag</th>
+      <th>Schedule</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule_items.each do |schedule_item| %>
+      <tr>
+        <td><%= schedule_item.item_type %></td>
+        <td><%= schedule_item.start_date %></td>
+        <td><%= schedule_item.end_date %></td>
+        <td><%= schedule_item.tag %></td>
+        <td><%= schedule_item.schedule %></td>
+        <td><%= schedule_item.title %></td>
+        <td><%= link_to 'Show', schedule_item %></td>
+        <td><%= link_to 'Edit', edit_schedule_item_path(schedule_item) %></td>
+        <td><%= link_to 'Destroy', schedule_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule Item', new_schedule_item_path %>

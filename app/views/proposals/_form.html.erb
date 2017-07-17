@@ -33,19 +33,22 @@
   </div>
   <div class='row'>
     <div class="col-md-4">
-      <%= form.label :skills %>
-      <%= form.select :skills, @skills, {prompt: false},
-        {:multiple => true, class: "form-control"} %>
+     <%=form.select 'skills', options_for_select(
+        @skills.map {|s| [s.name, s.id]}, 
+      @proposal.skills.pluck(:id)), {},
+      {:multiple => true, class: 'form-control'}%>
     </div> 
     <div class="col-md-4">
       <%= form.label :location %>
-      <%= form.select :location, @locations, {prompt: false},
+      <%= form.select :location, options_for_select(@locations, :selected => @proposal.location),
         {:multiple => false, class: "form-control"} %>
     </div> 
     <div class="col-md-4">
       <%= form.label :scenes %>
-      <%= form.select :scenes, @scenes, {prompt: false},
-        {:multiple => true, class: "form-control"} %>
+      <%=form.select 'scenes', options_for_select(
+        @scenes.map {|s| [s.name, s.id]}, 
+      @proposal.scenes.pluck(:id)), {},
+      {:multiple => true, class: 'form-control'}%>
     </div> 
   </div>
   

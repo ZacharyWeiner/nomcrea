@@ -36,6 +36,10 @@ class PagesController < ApplicationController
     puts @requests.count
   end
 
+  def my_schedule
+    @schedule_items = ScheduleItem.where(schedule: current_user.schedule)
+  end 
+
   def proposal_selection
     @portfolios = Portfolio.take(3)
     @recent_portfolios = Portfolio.order(created_at: :desc).take(12)
@@ -46,7 +50,11 @@ class PagesController < ApplicationController
     current_user.save
     if params[:query] == 'company'
       redirect_to my_proposals_path
-    else 
+    else
+      if current_user.schedule.nil?
+        current_user.schedule = Schedule.create(user: user)
+        current_user.save
+      end
       redirect_to proposals_path
     end
   end 

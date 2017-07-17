@@ -54,7 +54,12 @@ nomCrea1Portfolio2.portfolio_items.create(title: 'Videography Exibit 2', descrip
 nomCrea1.portfolios << nomCrea1Portfolio2
 puts 'Portfolio Items Created For User: creative@nomcrea.com Portfolio 2'
 
+nomCrea1Schedule = Schedule.create!(user: nomCrea1)
+nomCrea1Schedule.schedule_items.create!(title:'Creative1 In Asia', start_date: Date.today, end_date: Date.today, item_type: 'Available' )
+nomCrea1Schedule.schedule_items.create!(title:'Creative1 In Europe', start_date: Date.today, end_date: Date.today, item_type: 'Available' )
 
+nomCrea1.schedule = nomCrea1Schedule
+nomCrea1.save
 
 nomCrea2 = User.create!(email: 'creative2@nomcrea.com', display_name: 'Nomcrea Two', password: 'password', password_confirmation: 'password')
 puts "User Created: creative2@nomcrea.com"
@@ -72,6 +77,12 @@ nomCrea2Portfolio2.portfolio_items.create(title: 'Videography Exibit 2.2', descr
 nomCrea2.portfolios << nomCrea2Portfolio2
 puts 'Portfolio Items Created For User: creative2@nomcrea.com Portfolio 2'
 
+nomCrea2Schedule = Schedule.create!(user: nomCrea2)
+nomCrea2Schedule.schedule_items.create!(title:'Creative2 In Asia', start_date: Date.today, end_date: Date.today, item_type: 'Available' )
+nomCrea2Schedule.schedule_items.create!(title:'Creative2 In Europe', start_date: Date.today, end_date: Date.today, item_type: 'Available' )
+
+nomCrea2.schedule = nomCrea2Schedule
+nomCrea2.save
 
 puts 'Creating Tags'
 
@@ -100,5 +111,9 @@ Tag.create!(name: 'new york city', tag_type: 'city', parent_id: us.id)
 puts 'End Creating Tags'
 
 
+nomCrea1Schedule.schedule_items.first.tags << asia
+nomCrea1Schedule.schedule_items.last.tags << europe
 
+nomCrea2Schedule.schedule_items.first.tags << asia
+nomCrea2Schedule.schedule_items.last.tags << europe 
 

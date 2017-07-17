@@ -29,9 +29,14 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/1/edit
   def edit
-    @skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
+    #@skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
+    @skills = Tag.where(tag_type: 'skill')
     set_locations
-    @scenes = Tag.where(tag_type: 'scene').collect{|p| [p.name, p.id]}
+    @scenes = Tag.where(tag_type: 'scene')
+
+    @proposal_skills= @proposal.tags.where(tag_type:'skill').pluck(:id)
+    puts @proposal_skills
+    
     
   end
 

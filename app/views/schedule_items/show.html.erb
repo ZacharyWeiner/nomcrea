@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @schedule_item.item_type %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @schedule_item.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @schedule_item.end_date %>
+</p>
+
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @schedule_item.schedule %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @schedule_item.title %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_item_path(@schedule_item) %> |
+<%= link_to 'Back', schedule_items_path %>

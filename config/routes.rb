@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :schedule_items
+  resources :schedules
   resources :tags
   resources :portfolios do 
     resources :portfolio_items do 
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   get '/my-portfolios', to: 'pages#my_portfolios'
   get '/my-proposals', to: 'pages#my_proposals'
   get '/my-requests', to: 'pages#my_requests'
+  get '/my-schedule', to: 'pages#my_schedule'
   get 'proposal-selection', to: 'pages#proposal_selection'
   get '/proposals/:id/add-proposal-request', to: 'proposal_requests#add_request'
   get 'select-role', to: 'pages#select_role'
