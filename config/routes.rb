@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/my-proposals', to: 'pages#my_proposals'
   get '/my-requests', to: 'pages#my_requests'
   get '/my-schedule', to: 'pages#my_schedule'
+  get 'user-pages/my-skills', to: 'user_pages#my_skills'
+  post 'user-pages/my-skills', to: 'user_pages#my_skills'
   get 'proposal-selection', to: 'pages#proposal_selection'
   get '/proposals/:id/add-proposal-request', to: 'proposal_requests#add_request'
   get 'select-role', to: 'pages#select_role'

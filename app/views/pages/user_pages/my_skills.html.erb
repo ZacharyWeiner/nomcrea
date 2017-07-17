@@ -1,0 +1,35 @@
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">My Skills</h1>
+  </div>
+</section>
+<div class='container'>
+ 
+    <%= form_tag user_pages_my_skills_path, :method => :post, :class => 'form-group' do  %>
+     <div class='row'>
+     <div class="col-md-6">
+    <div class='form-group'>
+      <%= label_tag :skills %>
+      <%= select_tag 'skills', options_for_select(
+        @skills.map {|s| [s.name, s.id]}, 
+        current_user.skills.pluck(:id)),
+        {:multiple => true, class: 'form-control'}%>
+        </div>
+    </div>
+    <div class="col-md-6">
+    <div class='form-group'>
+      <%= label_tag :scenes %>
+      <%= select_tag 'scenes', options_for_select(
+        Tag.scenes.map {|s| [s.name, s.id]}, 
+        current_user.scenes.pluck(:id)),
+        {:multiple => true, class: 'form-control'}%>
+    </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Update Skills', class: 'btn btn-primary btn-block' %>
+    </div>
+    </div>
+    <%end %>
+  
+</div>

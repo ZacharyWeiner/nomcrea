@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def skills 
     self.tags.where(tag_type: 'skill')
   end 
+
+  def scenes 
+    self.tags.where(tag_type: 'scene')
+  end 
 end
