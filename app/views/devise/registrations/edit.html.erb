@@ -11,6 +11,11 @@
       <%= image_tag current_user.profile_image, style:'width:100%',  class: 'image-rounded'%>
       <%= f.label :profile_image %><br />
       <%= f.file_field :profile_image, class: 'form-control' %>
+      <h4> Skills </h4>
+      <% current_user.tags.each do |tag| %>
+        <span><%= tag.name %></span><br>
+      <% end %>
+      <%= link_to "Edit skills", user_pages_my_skills_path, class: 'btn btn-warning'%>
       <% if current_user.company %>
         <%= link_to "Edit Company", edit_company_path(current_user.company), class: 'btn btn-warning'%>
         <br/>

@@ -3,13 +3,14 @@ class UserPagesController < ApplicationController
   def my_skills
     @skills = Tag.skills 
     puts params
+    byebug
     to_remove = []
     to_add = []
     current_scenes = current_user.scenes.map { |e| e.id  }
     current_skills = current_user.skills.map { |e| e.id  }
-    to_remove << current_scenes
-    to_remove << current_skills
+    
     if not params[:skills].nil?
+      to_remove << current_scenes
       params[:skills].each do |skill|
         if to_remove.include?(skill) # user is already tagged with skill 
           to_remove.remove(skill) #delete from the key of skills to remove 
@@ -19,6 +20,7 @@ class UserPagesController < ApplicationController
       end 
     end
     if not params[:scenes].nil?
+      to_remove << current_skills
       params[:scenes].each do |scene|
         if to_remove.include?(scene) # user is already tagged with skill 
           to_remove.remove(scene) #delete from the key of skills to remove 
