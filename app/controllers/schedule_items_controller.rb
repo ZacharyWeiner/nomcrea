@@ -18,8 +18,7 @@ class ScheduleItemsController < ApplicationController
 
   # GET /schedule_items/1/edit
   def edit
-    @location_tag = @schedule_item.tags.first.id
-    byebug
+    @location_tag = @schedule_item.tags.pluck(:id)
   end
 
   # POST /schedule_items
@@ -27,6 +26,7 @@ class ScheduleItemsController < ApplicationController
     @schedule_item = ScheduleItem.new(schedule_item_params)
     @schedule_item.schedule = current_user.schedule
     if @schedule_item.save
+      @schedule_item.set_location(Tag.find(params[:schedule_item]['location']))
       redirect_to @schedule_item, notice: 'Schedule item was successfully created.'
     else
       render :new
@@ -37,6 +37,7 @@ class ScheduleItemsController < ApplicationController
   def update
     if @schedule_item.update(schedule_item_params)
       @schedule_item.schedule = current_user.schedule
+      @schedule_item.set_location(Tag.find(params[:schedule_item]['location']))
       redirect_to @schedule_item, notice: 'Schedule item was successfully updated.'
     else
       render :edit

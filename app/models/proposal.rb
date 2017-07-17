@@ -13,7 +13,6 @@ class Proposal < ApplicationRecord
   end 
 
   def location
-
     self.tags.locations.first
   end 
 
