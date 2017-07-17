@@ -9,6 +9,7 @@ class Tag < ApplicationRecord
 
   scope :locations, -> {where(tag_type: ['region', 'country', 'city'])}
   scope :scenes, -> {where(tag_type: 'scene')}
+  scope :skills, -> {where(tag_type: 'skill')}
 
   def self.build_locations
     regions = Tag.where(tag_type: ['region'])

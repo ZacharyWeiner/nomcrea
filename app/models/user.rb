@@ -19,4 +19,8 @@ class User < ApplicationRecord
   has_one :schedule
   has_and_belongs_to_many :tags
   mount_uploader :profile_image, ProfileImageUploader
+
+  def skills 
+    self.tags.where(tag_type: 'skill')
+  end 
 end
