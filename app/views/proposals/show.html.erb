@@ -19,9 +19,7 @@
       <a href="#" class="btn btn-secondary">Message Owner</a>
       <% end %>
     </p>
-  </div>
-
-  
+  </div>  
 </section>
 
 <div class='row'>
@@ -31,8 +29,9 @@
     <p><%= @proposal.deadline %></p>
     <p><%= @proposal.content %></p>
   </div>
-  <div class='col-md-4'></div>
- 
+  <div class='col-md-4'>
+    <%= render 'shared/charges/stripe_button'%>
+  </div>
 </div>
 
 <div class="container">

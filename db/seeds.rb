@@ -12,7 +12,7 @@ ccUser = User.create!(email: 'coke@coke.com', display_name: 'Coke Co', password:
 puts "Company Coke User Created"
 coke.users << ccUser 
 puts "Company Coke User Asigned to company"
-coke.proposals.create!(title: "Cokes 1st proposal", content: 'This is a description of cokes first proposal')
+coke.proposals.create!(title: "Cokes 1st proposal", content: 'This is a description of cokes first proposal', proposal_type: 'Videography', price: 8000)
 coke.proposals.first.requirements.create!(title: "do coke", description: "make coke happen")
 puts "Company Coke Proposal Created"
 
@@ -23,7 +23,7 @@ pUser = User.create!(email: 'pepsi@pepsi.com', display_name: 'Pepsi Co', passwor
 puts "Company Pepsi User Created"
 pepsi.users << pUser 
 puts "Company Pepsi User Asigned to company"
-pepsi.proposals.create!(title: "Pepsis 1st proposal", content: 'This is a description of pepsis first proposal')
+pepsi.proposals.create!(title: "Pepsis 1st proposal", content: 'This is a description of pepsis first proposal', proposal_type: 'Photography', price: 5000)
 pepsi.proposals.first.requirements.create!(title: "do pepsi", description: "make pepsi happen")
 puts "Company Pepsi Proposal Created"
 
@@ -34,7 +34,7 @@ tfUser = User.create!(email: 'tom-ford@tom-ford.com',display_name: 'Tom Ford', p
 puts "Company Tom Ford User Created"
 tomford.users << tfUser
 puts "Company Tom Ford User Asigned to company"
-tomford.proposals.create!(title: "Tom Fords 1st proposal", content: 'This is a description of tom fords first proposal')
+tomford.proposals.create!(title: "Tom Fords 1st proposal", content: 'This is a description of tom fords first proposal', proposal_type: 'Drone', price: 1000)
 tomford.proposals.first.requirements.create!(title: "do tom ford", description: "make tom ford happen")
 puts "Company Tom Ford Proposal Created"
 
