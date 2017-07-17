@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714003031) do
+
+ActiveRecord::Schema.define(version: 20170715194848) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +105,32 @@ ActiveRecord::Schema.define(version: 20170714003031) do
     t.index ["proposal_id"], name: "index_requirements_on_proposal_id"
   end
 
+  create_table "schedule_items", force: :cascade do |t|
+    t.string "item_type"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "tag_id"
+    t.bigint "schedule_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_schedule_items_on_schedule_id"
+    t.index ["tag_id"], name: "index_schedule_items_on_tag_id"
+  end
+
+  create_table "schedule_items_tags", id: false, force: :cascade do |t|
+    t.bigint "schedule_item_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["schedule_item_id", "tag_id"], name: "index_schedule_items_tags_on_schedule_item_id_and_tag_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -149,5 +177,8 @@ ActiveRecord::Schema.define(version: 20170714003031) do
   add_foreign_key "proposals", "companies"
   add_foreign_key "proposals", "users"
   add_foreign_key "requirements", "proposals"
+  add_foreign_key "schedule_items", "schedules"
+  add_foreign_key "schedule_items", "tags"
+  add_foreign_key "schedules", "users"
   add_foreign_key "users", "companies"
 end
