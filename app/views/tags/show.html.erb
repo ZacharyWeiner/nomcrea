@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<h1> Tag: </h1>
+<div class="container">
 <p>
   <strong>Tag:</strong>
-  <%= @tag.tag %>
+  <%= @tag.name %>
 </p>
 
 <p>
@@ -10,5 +11,11 @@
   <%= @tag.tag_type %>
 </p>
 
+<p>
+  <strong>Tag parent:</strong>
+  <%= @tag.parent.name unless @tag.parent.nil? %>
+</p>
+
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
 <%= link_to 'Back', tags_path %>
+</div> 

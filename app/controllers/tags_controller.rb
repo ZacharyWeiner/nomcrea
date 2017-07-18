@@ -1,7 +1,8 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-
+  before_action :authenticate_user!
+  layout 'carousel' 
   # GET /tags
   def index
     @tags = Tag.all
@@ -54,6 +55,6 @@ class TagsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tag_params
-      params.require(:tag).permit(:tag, :tag_type)
+      params.require(:tag).permit(:tag, :tag_type, :name, :parent_id)
     end
 end

@@ -12,13 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :tag %>
-    <%= form.text_field :tag, id: :tag_tag %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+  <% @selected_tag_type = 'skill' %>
     <%= form.label :tag_type %>
-    <%= form.text_field :tag_type, id: :tag_tag_type %>
+    <%= form.select :tag_type, options_for_select(Tag.select(:tag_type).map(&:tag_type).uniq, @selected_tag_type),
+      {:multiple => false, class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= form.label :parent_id %>
+    <%= form.select :parent_id, options_for_select(Tag.all.map { |e| [e.name, e.id]  }, tag.parent_id), {prompt: "Please Select", :multiple => false, class: "form-control"} %>
   </div>
 
   <div class="actions">
