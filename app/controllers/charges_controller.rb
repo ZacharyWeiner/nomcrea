@@ -20,8 +20,9 @@ class ChargesController < ApplicationController
     if charge[:paid]
       proposal.is_paid = true
       proposal.charge_id = charge[:id]
+      proposal.save
     end 
-    byebug
+    redirect_to proposal_path(proposal)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
