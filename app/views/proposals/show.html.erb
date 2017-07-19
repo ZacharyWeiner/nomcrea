@@ -8,7 +8,10 @@
       <p class="lead text-muted"><%= @proposal.deadline %></p>
     <% end %>
     <p class="lead text-muted"><%= number_to_currency(@proposal.price, precision: 0) %> USD</p>
-    
+    <p class="lead text-muted">
+      <%= link_to "Find Creatives", {:action=> "index", :controller => "search"}, class: 'btn btn-primary' %>
+    </p>
+  
     <p>
       <% if current_user && current_user.has_roles?(:creative) %>
       <% if @requests && @requests.count == 0 %>

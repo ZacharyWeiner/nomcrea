@@ -1,0 +1,23 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Search Results For Proposal <%= @proposal.title%></h1>
+  </div>
+
+  
+</section>
+<div class='container'>
+<%  @results.each do |result| %>
+  <div class='row'>
+    <%= result[0].email %>
+    <%= result[1] %>
+
+    <% if current_user.has_role?(:company)%>
+      <% if result[0].proposal_requests.where(proposal_id: @proposal.id).count > 0 %>
+      <%= link_to "Creative Requested", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary disabled' %>
+      <% else %>
+       <%= link_to "Request Creative", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary' %>
+      <% end %>  
+    <% end%>
+  </div>
+<% end %>
+</div>
