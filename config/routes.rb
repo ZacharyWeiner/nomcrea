@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'assign-role', to: 'pages#assign_role'
   get 'accept-request', to: 'proposal_requests#accept_request'
   get 'accept-request/:id', to: 'proposal_requests#accept_request'
-  get 'search/proposals/:id', to: 'search#index'
+  get 'search/proposals/:id', to: 'search#index', as: "search/proposals"
   resources :charges
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#home"

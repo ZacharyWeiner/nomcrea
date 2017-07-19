@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
       proposal.charge_id = charge[:id]
       proposal.save
     end 
-    redirect_to proposal_path(proposal)
+    redirect_to search_proposals_path(proposal)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
