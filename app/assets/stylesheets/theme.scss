@@ -79,6 +79,8 @@ button {background: none; border:0px none;}
 
 body[data-color="theme-1"] .push-1 {background: #f34580;}
 body[data-color="theme-1"] .push-1:hover {background: #fff; color: #222;}
+body[data-color="theme-1"] .push-2 {background: white; color: black;}
+body[data-color="theme-1"] .push-2:hover {background: #fff; color: #f34580;}
 body[data-color="theme-1"] .bg-main {background: black}
 body[data-color="theme-1"] .bg-second {background: #f34580;}
 body[data-color="theme-1"] .item-layer {background: rgba(243,69,128,0.95);}
@@ -408,6 +410,15 @@ transform:translate3d(0px,0,0);transition-timing-function:ease;-webkit-box-sizin
 /*----------------------BUTTON STYLE----------------------*/
 
 .push-1 {position: relative; display: inline-block; border-radius: 5px; padding: 20px; font-size: 11px; line-height: 11px; text-transform: uppercase; color: #fff; background: #fff; box-shadow: 2px 2px 3px rgba(0,0,0,0.1);}
+
+.push-2 {position: relative; display: inline-block; border-radius: 5px; padding: 20px; font-size: 11px; line-height: 11px; text-transform: uppercase; color: #fff; background: #fff; box-shadow: 2px 2px 3px rgba(0,0,0,0.1);}
+
+.clear-btn{
+  background-color: transparent;
+  position: relative; display: inline-block; border-radius: 5px; padding: 20px; font-size: 11px; line-height: 11px; text-transform: uppercase; color: #fff; background: #fff; box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  color: black;
+
+}
 
 /*------------------------------------------------------*/
 /*----------------------TEXT STYLE----------------------*/
@@ -812,24 +823,36 @@ transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);}
 }
 
 .btn-primary{
-  color: black;
+  color: white;
   background-color: #f34580;
   border-color: #f34580;
+  font-family: 'Open Sans';
+  padding: 20px;
+  display: inline-block; border-radius: 5px;
 }
 
 .btn-primary:hover{
   color: black;
   background-color: white;
+  font-family: 'Open Sans';
+  padding: 20px;
+  display: inline-block; border-radius: 5px;
 }
 
 .btn-secondary{
   color: white;
-  background-color: transparent
+  background-color: transparent;
+  font-family: 'Open Sans';
+  padding: 20px;
+  display: inline-block; border-radius: 5px;
 }
 
 .btn-secondary:hover{
   color: #black;
   background-color: white;
+  font-family: 'Open Sans';
+  padding: 20px;
+  display: inline-block; border-radius: 5px;
 }
  
 
@@ -861,7 +884,20 @@ transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);}
 
 
 
+.fa-3-center{
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: center;
+  padding-top: 15%;
+}
 
+.white {
+    color:white;
+}
+
+.main-color{
+  color: #f34580;
+}
 
 
 
