@@ -774,6 +774,63 @@ transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);}
 .swiper-anime .swiper-slide.active .block-bg .bg-bg {transform: scale(1); opacity: 1;}
 .swiper-anime .main-title {transform: scale(0.5); -webkit-transform: scale(0.5);-moz-transform: scale(0.5);-ms-transform: scale(0.5); opacity: 0; transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;-moz-transition:all 0.3s ease-in;-o-transition:all 0.3s ease-in;-ms-transition:all 0.3s ease-in;}
 .swiper-anime .swiper-slide.active .main-title {transform: scale(1); -webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1); opacity: 1;}
+
+
+.hover-container {
+  padding-top: 10px;
+ 
+}
+
+.pre-overlay-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute; left: 20px; top: 20px; bottom: 10px; right: 20px; text-align: center; color: #fff; opacity: 0; -webkit-transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);-moz-transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);-o-transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095); background-color: #f34580;
+
+
+}
+
+.hover-container:hover .overlay {
+  opacity: .9;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.overlay-text-sub{
+  text-transform: uppercase; font-size: 11px; color: rgba(255,255,255,0.4);
+
+}
+
+.btn-primary{
+  color: black;
+  background-color: #f34580;
+  border-color: #f34580;
+}
+
+.btn-primary:hover{
+  color: black;
+  background-color: white;
+}
+
+.btn-secondary{
+  color: white;
+  background-color: transparent
+}
+
+.btn-secondary:hover{
+  color: #black;
+  background-color: white;
+}
  
 
 /* CUSTOMIZE THE CAROUSEL
@@ -801,6 +858,8 @@ transition: all 350ms cubic-bezier(0.53, -0.005, 0.75, 0.095);}
   min-width: 100%;
   height: 32rem;
 }
+
+
 
 
 

@@ -1,11 +1,12 @@
-<div class="card text-center" style='background-image: url("<%= portfolio_item.safe_cover_image %>");background-size: cover; background-repeat: no-repeat; margin: 8px;' > 
-  <div class="card-block">
-    <h3 class='card-title'><%= portfolio_item.title %></h3>
-    <p class='card-text'><%= portfolio_item.description %></p>
-      <%= link_to 'Show', portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-primary'%>
-      <% if portfolio_item.portfolio.user == current_user %>
-      <%= link_to 'Edit', edit_portfolio_portfolio_item_path(portfolio_item.portfolio, portfolio_item), class: 'btn btn-warning' %>
-      
+<div class='col-md-4'>
+  <div class="hover-container">
+    <%= image_tag portfolio_item.safe_cover_image, class: 'pre-overlay-image'  %>
+    <div class="overlay">
+      <%= link_to portfolio_portfolio_item_path(portfolio_item) do %>
+        <div class="overlay-text"><%= portfolio_item.title %>
+          <div class="overlay-text-sub"><%= portfolio_item.description %></div>
+        </div>
       <% end %>
+    </div>
   </div>
-  </div>
+</div> 

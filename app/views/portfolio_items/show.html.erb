@@ -1,23 +1,34 @@
-<section class="jumbotron text-center" style='background-image: url("<%= @portfolio_item.safe_cover_image %>");background-size: cover; background-repeat: no-repeat;'>
-  <div class="container">
-    <h1 class="jumbotron-heading"><%= @portfolio_item.title %></h1>
-    <p class="lead text-muted"><%= @portfolio_item.portfolio.user.email %></p>
-    
-    <p>
-      <a href="#" class="btn btn-primary">Hire Me</a>
+<div id="portfolio">
+  <div class="section bg-main work-section">
+    <div class="second-title">
+      <h2><%= @portfolio_item.title %></h2>
+      
+      <a href="#" class="btn btn-primary">Request Job</a>
       <a href="#" class="btn btn-secondary">Message Owner</a>
-    </p>
-  </div>
-</section>
-  <%= link_to 'Delete Collection', [@portfolio_item.portfolio, @portfolio_item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger right' %>
-<div class="container">
-    <h4>Items</h4>
-    <div class='row'> 
-    <%= render @portfolio_item.portfolio_item_attachments %>
     </div>
-    <%= link_to 'Edit', edit_portfolio_portfolio_item_path(@portfolio_item.portfolio, @portfolio_item) %>|
-    <%= link_to 'Back', portfolio_portfolio_items_path(@portfolio_item.portfolio) %>
+    <div class='container'>
+      <div id="filters" class="fillter-wrap">
+         <button class="but activbut" data-filter="*">All</button>  
+         <button class="but" data-filter=".design">design</button>
+         <button class="but" data-filter=".development">development</button>
+         <button class="but" data-filter=".branding">branding</button>
+         <button class="but" data-filter=".logo">logo</button>
+      </div>
 
+      <div class="container">
+        <%= link_to 'Delete Collection', [@portfolio_item.portfolio, @portfolio_item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger right' %>
+        <div class="container">
+            <h4>Items</h4>
+            <div class='row'> 
+            <%= render @portfolio_item.portfolio_item_attachments %>
+            </div>
+            <%= link_to 'Edit', edit_portfolio_portfolio_item_path(@portfolio_item.portfolio, @portfolio_item) %>|
+            <%= link_to 'Back', portfolio_portfolio_items_path(@portfolio_item.portfolio) %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

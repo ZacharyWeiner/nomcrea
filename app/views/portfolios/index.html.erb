@@ -1,22 +1,26 @@
-<p id="notice"><%= notice %></p>
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Portfolios</h1>
-    <p class="lead text-muted">Go Find You Some Workers!</p>
-    <p>
+<div id="portfolio">
+  <div class="section bg-main work-section">
+    <div class="second-title">
+      <h2>Portfolios</h2>
+      <p>Check Out Our Talent</p>
       <a href="#" class="btn btn-primary">My Work</a>
       <a href="#" class="btn btn-secondary">My Queue</a>
-    </p>
+    </div>
+    <div class='container'>
+      <div id="filters" class="fillter-wrap">
+         <button class="but activbut" data-filter="*">All</button>  
+         <button class="but" data-filter=".design">design</button>
+         <button class="but" data-filter=".development">development</button>
+         <button class="but" data-filter=".branding">branding</button>
+         <button class="but" data-filter=".logo">logo</button>
+      </div>
+      <div class="row">
+        <%= render @portfolios%>
+      </div>
   </div>
-</section>
 
+  <br>
 
-<div class='container'> 
-<div class="row">
-  <%= render @portfolios%>
+  <%= link_to 'New Portfolio', new_portfolio_path %>
+  </div>
 </div>
-</div>
-
-<br>
-
-<%= link_to 'New Portfolio', new_portfolio_path %>

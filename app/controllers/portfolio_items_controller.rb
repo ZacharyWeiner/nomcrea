@@ -1,7 +1,7 @@
 class PortfolioItemsController < ApplicationController
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  layout 'carousel'
+  layout 'theme'
 
   # GET /portfolio_items
   def index

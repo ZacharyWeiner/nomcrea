@@ -1,26 +1,33 @@
-<p id="notice"><%= notice %></p>
-<section class="jumbotron text-center" style='background-image: url("<%= @portfolio.safe_cover_image %>");background-size: cover; background-repeat: no-repeat;'>
-  <div class="container">
-    <h1 class="jumbotron-heading"><%= @portfolio.title %></h1>
-    <p class="lead text-muted"><%= @portfolio.user.email %></p>
-    
-    <p>
+<div id="portfolio">
+  <div class="section bg-main work-section">
+    <div class="second-title">
+      <h2><%= @portfolio.title %></h2>
+      
       <a href="#" class="btn btn-primary">Request Job</a>
       <a href="#" class="btn btn-secondary">Message Owner</a>
-    </p>
-  </div>
-</section>
-
-<div class="container">
-    <h4>Items</h4>
-    <%= link_to "New Collection", new_portfolio_portfolio_item_path(@portfolio), class: 'btn btn-primary' %>
-    <%= link_to 'Delete Portfolio', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger right' %>
-    <div class='row'> 
-    <%= render @portfolio.portfolio_items %>
     </div>
-    <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-    <%= link_to 'Back', portfolios_path %>
+    <div class='container'>
+      <div id="filters" class="fillter-wrap">
+         <button class="but activbut" data-filter="*">All</button>  
+         <button class="but" data-filter=".design">design</button>
+         <button class="but" data-filter=".development">development</button>
+         <button class="but" data-filter=".branding">branding</button>
+         <button class="but" data-filter=".logo">logo</button>
+      </div>
 
+      <div class="container">
+          <h4>Items</h4>
+          <%= link_to "New Collection", new_portfolio_portfolio_item_path(@portfolio), class: 'btn btn-primary' %>
+          <%= link_to 'Delete Portfolio', @portfolio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger right' %>
+          <div class='row'> 
+          <%= render @portfolio.portfolio_items %>
+          </div>
+          <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+          <%= link_to 'Back', portfolios_path %>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 

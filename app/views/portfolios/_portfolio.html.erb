@@ -1,14 +1,13 @@
 
-<div class="card text-center" style='background-image: url("<%= portfolio.safe_cover_image%>");background-size: cover; background-repeat: no-repeat; margin: 8px;' > 
-  <div class="card-header">
-    <%= portfolio.user.email %>
-  </div>
-  <div class="card-block">
-    <h3 class='card-title'><%= portfolio.title %></h3>
-      <%= link_to 'Show', portfolio, class: 'btn btn-primary'%>
-      <% if portfolio.user == current_user %>
-      <%= link_to 'Edit', edit_portfolio_path(portfolio), class: 'btn btn-warning' %>
+<div class='col-md-4'>
+  <div class="hover-container">
+    <%= image_tag portfolio.safe_cover_image, class: 'pre-overlay-image'  %>
+    <div class="overlay">
+      <%= link_to portfolio do %>
+        <div class="overlay-text"><%= portfolio.title %>
+          <div class="overlay-text-sub"><%= portfolio.user.email %></div>
+        </div>
       <% end %>
+    </div>
   </div>
-  </div>
-
+</div> 
