@@ -10,20 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap-sprockets
+
 //= require jquery3
-//= require jquery.turbolinks
 //= require rails-ujs
+//= require jquery.turbolinks
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui
 //= require autocomplete-rails
 //= require turbolinks
 //= require popper
 //= require_tree .
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require select
 
 
-$(function() {
-  $('.input-row #post_topics_list, .input-row #post_tags_list').select({tags:[]})
-});

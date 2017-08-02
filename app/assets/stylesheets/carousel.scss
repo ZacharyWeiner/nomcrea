@@ -1,4 +1,6 @@
 @import 'bootstrap';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -106,3 +108,13 @@ body {
 .dropdown-color{
   color: grey;
 }
+
+.nav-bar{
+
+}
+
+.nav-link{
+  font-family: 'Open Sans';
+  font-size: 13px;
+}
+

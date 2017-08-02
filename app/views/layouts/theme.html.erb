@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NomCrea</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'theme', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  <body data-color="theme-1">
+  <div class="theme">
+    <%= render '/shared/navigation/theme_nav' %>
+  <%= yield %>
+  </div>
+  <script src="https://use.fontawesome.com/1494e0c4f8.js"></script>
+  <script type="text/javascript">
+      $('.carousel').carousel()
+    </script>
+</body>
+</html>
+
+

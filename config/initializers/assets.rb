@@ -11,6 +11,8 @@ Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( proposals.css )
 Rails.application.config.assets.precompile += %w( carousel.css )
 Rails.application.config.assets.precompile += %w( autocomplete-rails.js )
+Rails.application.config.assets.precompile += %w( theme.css )
+Rails.application.config.assets.precompile += %w( theme.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
