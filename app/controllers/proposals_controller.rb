@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  layout 'carousel'
+  layout 'theme'
   autocomplete :tag, :name
 
   include ProposalsHelper
@@ -30,9 +30,9 @@ class ProposalsController < ApplicationController
   # GET /proposals/1/edit
   def edit
     #@skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
-    @skills = Tag.where(tag_type: 'skill')
+   @skills = Tag.where(tag_type: 'skill').collect{ |p| [p.name, p.id]}
     set_locations
-    @scenes = Tag.where(tag_type: 'scene')
+    @scenes = Tag.where(tag_type: 'scene').collect{|p| [p.name, p.id]}
 
     @proposal_skills= @proposal.tags.where(tag_type:'skill').pluck(:id)
     puts @proposal_skills

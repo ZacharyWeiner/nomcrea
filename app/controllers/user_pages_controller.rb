@@ -1,9 +1,9 @@
 class UserPagesController < ApplicationController
-  layout 'carousel'
+  layout 'theme'
   def my_skills
     @skills = Tag.skills 
     puts params
-    byebug
+ 
     to_remove = []
     to_add = []
     current_scenes = current_user.scenes.map { |e| e.id  }

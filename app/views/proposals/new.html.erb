@@ -2,20 +2,13 @@
   <div class="container">
     <h1 class="jumbotron-heading">Proposal Management </h1>
   </div>
-
-  
 </section>
 <div class='container'> 
   <div class='row'> 
-    <div class='col-md-4'></div>
-    <div class='col-md-4'>
-       <h1>New Proposal</h1>
-      <%= render 'form', proposal: @proposal %>
-
-      <%= link_to 'Back', proposals_path %>
-
+    <h1>New Proposal</h1>
     </div>
-    <div class='col-md-4'></div>
+    <%= render 'form', proposal: @proposal %>
+    <%= link_to 'Back', proposals_path %>
+      
   </div>
-</div>
 </div>

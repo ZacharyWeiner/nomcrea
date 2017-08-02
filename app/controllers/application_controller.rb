@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_copyright
-
   before_action :configure_permitted_parameters, if: :devise_controller? 
+
+  layout :layout_by_resource
   
   def set_copyright
     @copyright =(ZacksViewTool::Renderer.copyright 'NomCrea', 'All rights reserved')
@@ -14,7 +15,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :display_name, :profile_image,  :password,  :current_password])
   end
 
-  
+  def layout_by_resource
+    if devise_controller?
+      "theme"
+    else
+      "application"
+    end
+  end
 end
 
 

@@ -1,8 +1,11 @@
-<div class='container'>
-<h1>Editing Proposal</h1>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Edit <br/><%= @proposal.title %></h1><br/>
+    <% if @proposal.completed %>
+      <p class="lead text-muted">Completed</p>
+    <% end%>
+    </div>
+    
+</section>
 
 <%= render 'form', proposal: @proposal %>
-
-<%= link_to 'Show', @proposal %> |
-<%= link_to 'Back', proposals_path %>
-</div>

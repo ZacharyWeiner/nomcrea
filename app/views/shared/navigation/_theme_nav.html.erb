@@ -6,18 +6,21 @@
                 <p>NOMCRE</p>
               </a>
              </div>
-             <div class="nav-menu-icon"><a href="#"><i></i></a></div>
+             <div class="nav-menu-icon"><%= link_to root_path %><i></i></a></div>
           </div> 
         </div>             
     <nav>
        <div class="container">
        <ul>
-        <li><a href="#home" class="anchor-scroll active">Home</a></li>
-        <li><%= link_to 'Portfolios', portfolios_path, class: 'anchor-scroll' %></li>
-        <li><a href="#service" class="anchor-scroll">Services</a></li>
-        <li><a href="#portfolio" class="anchor-scroll">Portfolio</a></li>
-        <li><a href="#why" class="anchor-scroll">Why we</a></li>
-        <li><a href="#team" class="anchor-scroll">Our team</a></li>
+        <li><%= link_to 'Creative', portfolios_path %></li>
+        <% unless current_user %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <%end%>
+        <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
+        <li><%= link_to "Join Waitlist", '/join', class: 'green' %></li>
+        <% if current_user %>
+          <li><%= link_to "Logout", destroy_user_session_path %></li>
+        <%end%>
        </ul>
        </div>
     </nav> 

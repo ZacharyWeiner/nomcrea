@@ -1,54 +1,55 @@
 
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    
+ 
 <%= form_with(model: proposal, local: true) do |form| %>
   <% if proposal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(proposal.errors.count, "error") %> prohibited this proposal from being saved:</h2>
 
       <ul>
-      <% proposal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% proposal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
+  <div class="contact-form">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :proposal_title, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
+    <%= form.text_field :title, id: :proposal_title  %>
+  
     <%= form.label :content, "Creative Brief" %>
-    <%= form.text_area :content, id: :proposal_content, class: 'form-control', rows: 10 %>
-  </div>
-
-  <div class="form-group">
+    <%= form.text_area :content, id: :proposal_content , rows: 10 %>
+  
     <%= form.label :deadline %>
-    <%= form.date_select :deadline, id: :proposal_deadline, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
+    <%= form.date_select :deadline, id: :proposal_deadline  %> <br/>
+    <br/>
     <%= form.label :price %>
-    <%= form.text_field :price, id: :proposal_price, :readonly => true, class: 'form-control' %>
+    <%= form.text_field :price, id: :proposal_price, :readonly => true  %>
   </div>
   <div class='row'>
     <div class="col-md-4">
+     <%= form.label :skills %>
      <%=form.select 'skills', options_for_select(
-        @skills.map {|s| [s.name, s.id]}, 
+        @skills, 
       @proposal.skills.pluck(:id)), {},
       {:multiple => true, class: 'form-control'}%>
     </div> 
     <div class="col-md-4">
       <%= form.label :location %>
-
-      <%= form.select :location, options_for_select(@locations, @proposal.location.id),
+      <% id = 0 %>
+      <% id = @proposal.location.id unless @proposal.location.nil? %>
+      <%= form.select :location, options_for_select(@locations, id),
         {:multiple => false, class: "form-control"} %>
     </div> 
     <div class="col-md-4">
+      <% scene_ids = [] %>
+      <% scene_ids = @proposal.scenes.pluck(:id) unless @proposal.scenes.nil? %>
       <%= form.label :scenes %>
       <%=form.select 'scenes', options_for_select(
-        @scenes.map {|s| [s.name, s.id]}, 
-      @proposal.scenes.pluck(:id)), {},
+        @scenes, 
+      scene_ids), {},
       {:multiple => true, class: 'form-control'}%>
     </div> 
   </div>
@@ -58,6 +59,9 @@
     <%= form.hidden_field :proposal_type, id: :proposal_type %>
   </div>
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary btn-block' %>
+    <%= form.submit class: 'push-1' %> <br/>
+    <%= link_to 'Back', proposals_path %>
   </div>
 <% end %>
+  </div>  
+</div>
