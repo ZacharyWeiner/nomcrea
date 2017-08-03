@@ -1,22 +1,21 @@
-<div id="portfolio">
-  <div class="section bg-main work-section">
-    <div class="second-title">
-      <h1>Editing Portfolio</h1>
-      <h2><%= @portfolio.title %></h2>
+<section class="jumbotron text-center">
+  <div class="container">
+    <br>
+    <h1 class="jumbotron-heading">Editing Portfolio</h1>
+    <h2><%= @portfolio.title %></h2>
+  </div>
+</section>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
+      <%= render 'form', portfolio: @portfolio %>
+      
+      <%= link_to 'Show', @portfolio %> |
+      <%= link_to 'Back', portfolios_path %>
     </div>
-
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-4'></div>
-        <div class='col-md-4'>
-          <%= render 'form', portfolio: @portfolio %>
-          
-          <%= link_to 'Show', @portfolio %> |
-          <%= link_to 'Back', portfolios_path %>
-        </div>
-        <div class='col-md-4'></div>
-      </div>
-    </div>
+    <div class='col-md-4'></div>
   </div>
 </div>
+
 

@@ -7,12 +7,12 @@
       <h3 class='card-title'><%= proposal_request.proposal.title %></h3>
       <% if proposal_request.requested_by == 'company' %>
         <% if proposal_request.accepted == nil%>
-          <%= link_to "Accept",  {:action=> "accept_request", :controller => "proposal_requests"}, class: 'btn btn-warning' %>
+          <%= link_to "Accept",  {:action=> "accept_request", :controller => "proposal_requests"}, class: 'push-1' %>
         <%elsif %>
-        <%= link_to "Accepted",  {:action=> "accept_request", :controller => "proposal_requests"}, class: 'btn btn-success disabled' %>
+        <%= link_to "Accepted",  {:action=> "accept_request", :controller => "proposal_requests"}, class: 'push-1 disabled' %>
         <% end %>
       <% elsif %>
-        <%= link_to "Waiting", root_path, class: 'btn btn-warning disabled' %>
+        <%= link_to "Waiting", root_path, class: 'push-1 disabled' %>
       <% end %>
     </div>
   </div> 

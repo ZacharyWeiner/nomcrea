@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def my_portfolios
     @portfolios = Portfolio.where(user: current_user)
+    render :layout => 'theme' 
   end
 
   def my_proposals
@@ -31,20 +32,24 @@ class PagesController < ApplicationController
         @proposals = Proposal.where(user_id: current_user.id)
       end 
     end
+    render :layout => 'theme' 
   end 
 
   def my_requests
     @requests = ProposalRequest.where(user: current_user)
     puts @requests.count
+    render :layout => 'theme'
   end
 
   def my_schedule
     @schedule_items = ScheduleItem.where(schedule: current_user.schedule)
+    render :layout => 'theme'
   end 
 
   def proposal_selection
     @portfolios = Portfolio.take(3)
     @recent_portfolios = Portfolio.order(created_at: :desc).take(12)
+    render :layout => 'theme' 
   end 
 
   def assign_role 

@@ -14,9 +14,9 @@
       <p><%= schedule_item.schedule.user.skills.map { |e| e.name }.map(&:inspect).join(', ').tr('"', '')%></p>
     </div>
     <div class='col-md-2'>
-      <%= link_to "Show", schedule_item_path(schedule_item), class: 'btn btn-primary btn-block'%>
+      <%= link_to "Show", schedule_item_path(schedule_item), class: 'push-1 btn-block text-center'%>
       <% if schedule_item.schedule.user == current_user %>
-      <%= link_to "edit", edit_schedule_item_path(schedule_item), class: 'btn btn-warning btn-block'%>
+      <%= link_to "edit", edit_schedule_item_path(schedule_item), class: 'push-2 btn-block text-center'%>
       <%end%>
     </div>
   </div>

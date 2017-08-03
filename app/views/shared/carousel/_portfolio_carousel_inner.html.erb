@@ -8,9 +8,9 @@
       <img class="<%= @numbers[@portfolios_count] %>-slide" src="<%= portfolio.safe_cover_image %>" alt="<%= @numbers[@portfolios_count] %> slide">
       <div class="container">
         <div class="carousel-caption  d-md-block">
-          <h1><%= portfolio.title %></h1>
-          <p></p>
-          <p><%= link_to 'View Portfolio', portfolio_path(portfolio), class: "btn btn-lg btn-primary" %></p>
+          <h1><%= portfolio.user.display_name %></h1>
+          <p class='white'><%= portfolio.title %></p>
+          <p><%= link_to 'View Portfolio', portfolio_path(portfolio), class: "push-1" %></p>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+
+
 <%= form_for [portfolio, portfolio_item, portfolio_item_attachment] do |form| %>
   <% if portfolio_item_attachment.errors.any? %>
     <div id="error_explanation">
@@ -13,12 +15,12 @@
 
   <div class="form-group">
     <label class='btn btn-primary btn-block'>
-      Upload Gallery Item <%= form.file_field :attachement, style: 'display:none;' %>  
+      Add Image <%= form.file_field :attachement, style: 'display:none;' %>  
     </label>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: 'push-1 right' %>
   </div>
 <% end %>

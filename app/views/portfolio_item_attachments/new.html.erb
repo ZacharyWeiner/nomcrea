@@ -1,5 +1,13 @@
-<h1>New Portfolio Item Attachment</h1>
-
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Add An Image To </h1>
+    <h2><%= @portfolio_item.title %></h2>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-6 offset-md-3'>
 <%= render 'form', portfolio: @portfolio, portfolio_item: @portfolio_item, portfolio_item_attachment: @portfolio_item_attachment %>
 
 <%= link_to 'Back', portfolio_portfolio_item_portfolio_item_attachments_path %>
+  </div>
+</div>

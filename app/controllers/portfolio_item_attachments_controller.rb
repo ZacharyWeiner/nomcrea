@@ -1,7 +1,7 @@
 class PortfolioItemAttachmentsController < ApplicationController
   before_action :set_portfolio_item_attachment, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-
+  layout 'theme'
   # GET /portfolio_item_attachments
   def index
     @portfolio_item_attachments = PortfolioItemAttachment.all
@@ -29,7 +29,7 @@ class PortfolioItemAttachmentsController < ApplicationController
     @portfolio_item_attachment.portfolio_item = @portfolio_item
 
     if @portfolio_item_attachment.save
-      redirect_to portfolio_portfolio_item_portfolio_item_attachment_url(@portfolio_item.portfolio, @portfolio_item, @portfolio_item_attachment), notice: 'Portfolio item attachment was successfully created.'
+      redirect_to portfolio_portfolio_item_path(@portfolio_item.portfolio, @portfolio_item), notice: 'Portfolio item attachment was successfully created.'
     else
       render :new
     end

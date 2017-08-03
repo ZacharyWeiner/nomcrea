@@ -1,7 +1,7 @@
 class ScheduleItemsController < ApplicationController
   before_action :set_schedule_item, only: [:show, :edit, :update, :destroy]
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  layout 'carousel'
+  layout "theme"
   # GET /schedule_items
   def index
     @schedule_items = ScheduleItem.all
@@ -27,7 +27,7 @@ class ScheduleItemsController < ApplicationController
     @schedule_item.schedule = current_user.schedule
     if @schedule_item.save
       @schedule_item.set_location(Tag.find(params[:schedule_item]['location']))
-      redirect_to @schedule_item, notice: 'Schedule item was successfully created.'
+      redirect_to my_schedule_path, notice: 'Schedule item was successfully created.'
     else
       render :new
     end

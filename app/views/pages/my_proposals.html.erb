@@ -12,10 +12,9 @@
 <div class='row'></div>
 <div class='container'>
   <div class='row'>
-    <div class='col-md-11'></div>
-    <div class='col-md-1'>
+    <div class='col-md-1 offset-md-11'>
       <% if current_user && current_user.has_roles?(:company)%>
-      <%= link_to 'New Proposal', proposal_selection_path, class: 'btn btn-warning right',data: { turbolinks: false } %>
+      <%= link_to 'New', proposal_selection_path, class: 'push-1 right',data: { turbolinks: false } %>
       <% end %>
     </div>
   </div>
