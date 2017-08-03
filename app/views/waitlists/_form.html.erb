@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-6 offset-md-3'>
+    <div class='col-md-8 offset-md-2'>
       <%= form_with(model: waitlist, local: true) do |form| %>
         <% if waitlist.errors.any? %>
           <div id="error_explanation">
@@ -15,29 +15,34 @@
         <% end %>
 
         <div class="contact-form">
-          <%= form.label :name %>
-          <%= form.text_field :name, id: :waitlist_name %>
-        
-          <%= form.label :email %>
-          <%= form.text_field :email, id: :waitlist_email %>
+          <div class='row'>
+            <div class='col-md-6'>
+              <%= form.label :name %>
+              <%= form.text_field :name, id: :waitlist_name %>
+            
+              <%= form.label :email %>
+              <%= form.text_field :email, id: :waitlist_email %>
 
-          <%= form.label :website %>
-          <%= form.text_field :website, id: :waitlist_website %>
+              <%= form.label :website %>
+              <%= form.text_field :website, id: :waitlist_website %>
 
-          <%= form.label :phone %>
-          <%= form.text_field :phone, id: :waitlist_phone %>
-        
-          <%= form.label :instagram %>
-          <%= form.text_field :instagram, id: :waitlist_instagram %>
+              <%= form.label :phone %>
+              <%= form.text_field :phone, id: :waitlist_phone %>
+            </div>
+            <div class='col-md-6'>
+              <%= form.label :instagram %>
+              <%= form.text_field :instagram, id: :waitlist_instagram %>
 
-          <%= form.label :facebook %>
-          <%= form.text_field :facebook, id: :waitlist_facebook %>
-        
-          <%= form.label :px500 %>
-          <%= form.text_field :px500, id: :waitlist_px500 %>
-       
-          <%= form.label :smugmug %>
-          <%= form.text_field :smugmug, id: :waitlist_smugmug %>
+              <%= form.label :facebook %>
+              <%= form.text_field :facebook, id: :waitlist_facebook %>
+            
+              <%= form.label :px500 %>
+              <%= form.text_field :px500, id: :waitlist_px500 %>
+           
+              <%= form.label :smugmug %>
+              <%= form.text_field :smugmug, id: :waitlist_smugmug %>
+            </div>
+          </div>
         </div>
 
         <div class="actions">
