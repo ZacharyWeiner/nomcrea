@@ -1,0 +1,25 @@
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="how-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-user fa-3x fa-3-center white'></i>
+          </div>
+          <div class="text">
+          <h2><%= waitlist.id %>. <%= waitlist.name %></h2>
+          <br/>
+            <%= link_to "#{waitlist.instagram}" do %>
+                <i class='fa fa-instagram fa-3x'> </i>
+            <% end %>
+            <%= link_to "#{waitlist.px500}" do %>
+                <i class='fa fa-500px fa-3x'> </i>
+            <% end %>
+            <%= link_to "#{waitlist.smugmug}" do %>
+                <i class='fa fa-sumgmug fa-3x'> </i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

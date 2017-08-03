@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715194848) do
+ActiveRecord::Schema.define(version: 20170803023018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,6 +166,19 @@ ActiveRecord::Schema.define(version: 20170715194848) do
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "waitlists", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "instagram"
+    t.string "px500"
+    t.string "facebook"
+    t.string "phone"
+    t.string "website"
+    t.string "smugmug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "portfolio_item_attachments", "portfolio_items", on_delete: :cascade

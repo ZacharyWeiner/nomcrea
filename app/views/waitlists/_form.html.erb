@@ -1,0 +1,49 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 offset-md-3'>
+      <%= form_with(model: waitlist, local: true) do |form| %>
+        <% if waitlist.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(waitlist.errors.count, "error") %> prohibited this waitlist from being saved:</h2>
+
+            <ul>
+            <% waitlist.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="contact-form">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: :waitlist_name %>
+        
+          <%= form.label :email %>
+          <%= form.text_field :email, id: :waitlist_email %>
+        
+          <%= form.label :instagram %>
+          <%= form.text_field :instagram, id: :waitlist_instagram %>
+        
+          <%= form.label :px500 %>
+          <%= form.text_field :px500, id: :waitlist_px500 %>
+       
+          <%= form.label :facebook %>
+          <%= form.text_field :facebook, id: :waitlist_facebook %>
+        
+          <%= form.label :phone %>
+          <%= form.text_field :phone, id: :waitlist_phone %>
+        
+          <%= form.label :website %>
+          <%= form.text_field :website, id: :waitlist_website %>
+        
+          <%= form.label :smugmug %>
+          <%= form.text_field :smugmug, id: :waitlist_smugmug %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit 'Save My Spot', class: 'push-1' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
