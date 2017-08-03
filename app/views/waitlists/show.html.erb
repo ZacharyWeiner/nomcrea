@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @waitlist.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @waitlist.email %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @waitlist.instagram %>
+</p>
+
+<p>
+  <strong>500px:</strong>
+  <%= @waitlist.px500 %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @waitlist.facebook %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @waitlist.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @waitlist.website %>
+</p>
+
+<p>
+  <strong>Smugmug:</strong>
+  <%= @waitlist.smugmug %>
+</p>
+
+<%= link_to 'Edit', edit_waitlist_path(@waitlist) %> |
+<%= link_to 'Back', waitlists_path %>

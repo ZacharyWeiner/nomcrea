@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :waitlists
   resources :schedule_items
   resources :schedules
   resources :tags
