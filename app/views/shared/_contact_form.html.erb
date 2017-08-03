@@ -1,0 +1,19 @@
+<%= form_tag({controller: "contact_submission", action: "save"}, method: :post) %>
+<%= form_for @contact_submission, url: contact_submit_path do |form| %>
+<div class='contact-form'>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= form.text_field :name, placeholder: 'What is your name?' %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+     <%= form.text_field :email, placeholder: 'What is your email?' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= form.text_area :message, placeholder: 'How Can We Help You?' %>
+    <%= form.submit "Tell Us", class: 'push-1' %>
+  </div>
+</div>
+</div>
+<% end %>

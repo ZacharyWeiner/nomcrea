@@ -1,79 +1,64 @@
- <div id="contact">
-  <div class="section">
-      <div class="second-title">
-        <div class="container">
-          <h2>Contact Us</h2>
-          <p>Cras pulvinar ultricies ligula sed pharetra</p>
-        </div>
-      </div>
-      <div class="container">
-         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-               <div class="contact-block">
-                <div class="choose-icon bg-second">
-             <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
-            </div>
+<div id="contact">
+<div class="section">
+  <div class="second-title">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Cras pulvinar ultricies ligula sed pharetra</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="contact-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
+          </div>
           <div class="text">
             <h6>Phone</h6>
             <a href="tel:">+3 555 5253 1285</a>
           </div>
-               </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-               <div class="contact-block">
-                <div class="choose-icon bg-second">
-             <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="contact-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
+          </div>
           <div class="text">
             <h6>Phone</h6>
             <a href="tel:">office@nrgika.com</a>
           </div>
-               </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-               <div class="contact-block">
-                <div class="choose-icon bg-second">
-             <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="contact-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
+          </div>
           <div class="text">
             <h6>Address</h6>
             <span>Talay st. 65, 2nd floor Luzon Manila</span>
-              <span>Philippines 25607</span>
+            <span>Philippines 25607</span>
           </div>
-               </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-               <div class="contact-block">
-                <div class="choose-icon bg-second">
-             <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
-            </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="contact-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
+          </div>
           <div class="text">
             <h6>Work Time</h6>
             <span>Monday to Friday</span>
-              <span>9:00 pm to 20:00 pm</span>
+            <span>9:00 pm to 20:00 pm</span>
           </div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-12">
-               <form onSubmit="return submitForm();" action="/" method="post" name="contactform" class="contact-form" id="contact-form">
-                    <div class="row">
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input type="text" name="name" value="" placeholder="name" required>
-                      </div>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input type="email" name="email" value="" placeholder="email" required>
-            </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                         <textarea name="message" placeholder="Your message" required></textarea>
-                         <input type="submit" value="send message" class="submit bg-second">
-                      </div>
-                    </div>
-              </form>
-            </div>
-         </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'shared/contact_form' %>
+      </div>
     </div>
   </div>
+</div>

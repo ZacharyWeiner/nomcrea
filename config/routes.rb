@@ -31,8 +31,10 @@ Rails.application.routes.draw do
   get 'accept-request', to: 'proposal_requests#accept_request'
   get 'accept-request/:id', to: 'proposal_requests#accept_request'
   get 'search/proposals/:id', to: 'search#index', as: "search/proposals"
-  get 'theme', to:'themes#theme'
+  get 'theme', to:'themes#theme', as: 'contact'
   resources :charges
+  post 'contact', to:'contact_submission#save', as: 'contact_submit'
+  get 'contact_submissions', to: 'contact_submission#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "themes#theme"
 end
