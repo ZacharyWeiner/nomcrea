@@ -1,12 +1,13 @@
 
 <section class="jumbotron text-center">
   <div class="container">
+  <br>
     <h1 class="jumbotron-heading">My Skills</h1>
   </div>
 </section>
 <div class='container'>
  
-    <%= form_tag user_pages_my_skills_path, :method => :post, :class => 'form-group' do  %>
+    <%= form_tag user_pages_my_skills_path, :method => :post do  %>
      <div class='row'>
      <div class="col-md-6">
     <div class='form-group'>
@@ -27,7 +28,7 @@
     </div>
     </div>
     <div class="actions">
-      <%= submit_tag 'Update Skills', class: 'push-1' %><br/>
+      <%= submit_tag 'Update Skills', class: 'push-1' %><br/><br/>
        <%= link_to 'Done', '/users/edit', class: 'push-1 green-background' %> 
     </div>
     <%end %>

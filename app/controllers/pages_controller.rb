@@ -52,6 +52,10 @@ class PagesController < ApplicationController
     render :layout => 'theme' 
   end 
 
+  def select_role
+    render :layout => 'theme' 
+  end 
+
   def assign_role 
     current_user.roles=(params[:query])
     current_user.save
@@ -59,7 +63,7 @@ class PagesController < ApplicationController
       redirect_to my_proposals_path
     else
       if current_user.schedule.nil?
-        current_user.schedule = Schedule.create(user: user)
+        current_user.schedule = Schedule.create(user: current_user)
         current_user.save
       end
       redirect_to proposals_path

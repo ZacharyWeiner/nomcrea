@@ -38,7 +38,7 @@ class ScheduleItemsController < ApplicationController
     if @schedule_item.update(schedule_item_params)
       @schedule_item.schedule = current_user.schedule
       @schedule_item.set_location(Tag.find(params[:schedule_item]['location']))
-      redirect_to @schedule_item, notice: 'Schedule item was successfully updated.'
+      redirect_to my_schedule_path, notice: 'Schedule item was successfully updated.'
     else
       render :edit
     end

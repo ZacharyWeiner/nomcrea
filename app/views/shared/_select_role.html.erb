@@ -1,0 +1,34 @@
+<div class="section bg-grey">
+  <div class="second-title">
+    <h2>Choose your Account Type </h2>
+    <p>Are You A Company Or A Creative </p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="how-block">
+          <div class="choose-icon bg-second">
+            <i class='fa fa-sign-in fa-3x fa-3-center white'></i>
+          </div>
+          <div class="text">
+            <h6>My Company Needs Creative Content</h6>
+            <p>Describe Company Here  </p>
+             <%= link_to "Create First Proposal", {:action=> "assign_role", :controller => "pages", :query => "company"}, class: 'push-1' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="how-block">
+          <div class="choose-icon bg-second">
+            <i class="fa fa-exclamation fa-3x fa-3-center white" aria-hidden="true"></i>
+          </div>
+          <div class="text">
+            <h6>I Am A Creative  </h6>
+            <p>Describe Creative Here</p>
+            <%= link_to "Show Me Work", {:action=> "assign_role", :controller => "pages", :query => "creative"}, class: 'push-1' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

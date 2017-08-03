@@ -9,17 +9,19 @@
     <% end %>
     <p class="lead text-muted"><%= number_to_currency(@proposal.price, precision: 0) %> USD</p>
     <p class="lead text-muted">
-      <%= link_to "Find Creatives", {:action=> "index", :controller => "search"}, class: 'btn btn-primary' %>
+      <% if @proposal.company.users.include?(current_user) %>
+      <%= link_to "Find Creatives", {:action=> "index", :controller => "search"}, class: 'push-1' %>
+      <% end %>
     </p>
   
     <p>
       <% if current_user && current_user.has_roles?(:creative) %>
       <% if @requests && @requests.count == 0 %>
-        <%= link_to "Request Job", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary' %>
+        <%= link_to "Request Job", {:action=> "add_request", :controller => "proposal_requests"}, class: 'push-1' %>
       <% else %>
-      <%= link_to "Job Requested", {:action=> "add_request", :controller => "proposal_requests"}, class: 'btn btn-primary disabled' %>
+      <%= link_to "Job Requested", {:action=> "add_request", :controller => "proposal_requests"}, class: 'push-1' %>
       <% end %>
-      <a href="#" class="btn btn-secondary">Message Owner</a>
+      <a href="#" class="push-2">Message Owner</a>
       <% end %>
     </p>
   </div>  
