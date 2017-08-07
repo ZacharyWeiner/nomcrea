@@ -10,7 +10,7 @@ coke = Company.create!(name: "CocaCola", website: 'www.coke.com')
 puts "Company Coke Created"
 ccUser = User.create!(email: 'coke@coke.com', display_name: 'Coke Co', password: 'password', password_confirmation: 'password')
 puts "Company Coke User Created"
-coke.users << ccUser 
+coke.users << ccUser
 puts "Company Coke User Asigned to company"
 coke.proposals.create!(title: "Cokes 1st proposal", content: 'This is a description of cokes first proposal', proposal_type: 'Videography', price: 8000, deadline: Date.today + 3.months)
 coke.proposals.first.requirements.create!(title: "do coke", description: "make coke happen")
@@ -21,7 +21,7 @@ pepsi = Company.create!(name: "Pepsi", website: 'www.pepsi.com')
 puts "Company Pepsi Created"
 pUser = User.create!(email: 'pepsi@pepsi.com', display_name: 'Pepsi Co', password: 'password', password_confirmation: 'password')
 puts "Company Pepsi User Created"
-pepsi.users << pUser 
+pepsi.users << pUser
 puts "Company Pepsi User Asigned to company"
 pepsi.proposals.create!(title: "Pepsis 1st proposal", content: 'This is a description of pepsis first proposal', proposal_type: 'Photography', price: 5000, deadline: Date.today + 3.months)
 pepsi.proposals.first.requirements.create!(title: "do pepsi", description: "make pepsi happen")
@@ -116,9 +116,9 @@ nomCrea1Schedule.schedule_items.first.tags << asia
 nomCrea1Schedule.schedule_items.last.tags << europe
 
 nomCrea2Schedule.schedule_items.first.tags << asia
-nomCrea2Schedule.schedule_items.last.tags << europe 
+nomCrea2Schedule.schedule_items.last.tags << europe
 
 puts "Tagging Proposals Locations"
-coke.proposals.first << asia
-pepsi.proposals.first << asia
-tomford.proposals.first << europe
+coke.proposals.first.tags << asia
+pepsi.proposals.first.tags << asia
+tomford.proposals.first.tags << europe
