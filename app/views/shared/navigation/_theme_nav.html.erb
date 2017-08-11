@@ -1,33 +1,42 @@
 <header class="top-menu">
-        <div class="container">
-          <div class="navigation">
-             <div class="logo">
-              <%= link_to root_path, data: { turbolinks: false }  do %>
-                <p>NOMCRE</p>
-              <% end %>
-             </div>
-             <div class="nav-menu-icon">
-              <%= link_to root_path, data: { turbolinks: false } %>
-             </div>
-          </div>
-        </div>
-    <nav>
-       <div class="container">
+  <div class="container">
+    <div class="navigation">
+       <div class="logo">
+        <%= link_to root_path, data: { turbolinks: false }  do %>
+          <p>NOMCRE</p>
+        <% end %>
+       </div>
+        <div class="nav-menu-icon"><a href="#"><i></i></a></div>
+    </div>
+  </div>
+  <nav>
+     <div class="container">
        <ul>
-        <li><%= link_to 'Creative', portfolios_path %></li>
+        <li><%= link_to 'Creative', portfolios_path, class: 'anchor-scroll' %></li>
         <% unless current_user %>
-          <li><%= link_to "Login", new_user_session_path %></li>
+          <li><%= link_to "Login", new_user_session_path, class: 'anchor-scroll' %></li>
           <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
+          <li><%= link_to "Join Waitlist", new_waitlist_path, class: 'green' %></li>
         <% else %>
           <li><%= link_to "Create A Brief", proposal_selection_path, class: 'main-color' %></li>
-        <%end%>
-
-
-        <li><%= link_to "Join Waitlist", new_waitlist_path, class: 'green' %></li>
-        <% if current_user %>
+          <%= render '/shared/navigation/user_nav' %>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <%end%>
        </ul>
-       </div>
-    </nav>
-     </header>
+     </div>
+  </nav>
+</header>
+<script>
+$('.nav-menu-icon a').on('click', function() {
+    if ($('nav').hasClass('slide-menu')){
+       $('nav').removeClass('slide-menu');
+       $(this).removeClass('active');
+       $('body').css({'overflow':'auto'});
+    }else {
+       $('nav').addClass('slide-menu');
+       $(this).addClass('active');
+       $('body').css({'overflow':'hidden'});
+    }
+    return false;
+   });
+</script>
