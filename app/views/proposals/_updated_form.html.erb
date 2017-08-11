@@ -1,0 +1,201 @@
+<div class='form-group'>
+  <%= form_with(model: proposal, local: true) do |form| %>
+    <h2>Footage Type </h2>
+    <%= form.radio_button(:scene, "Product") %>
+    <%= form.label(:scene, "Product") %>
+    <%= form.radio_button(:scene, "Lifestyle") %>
+    <%= form.label(:scene, "Lifestyle") %>
+    <%= form.radio_button(:scene, "Mixed") %>
+    <%= form.label(:scene, "Mixed") %>
+    <%= form.radio_button(:scene, "Story") %>
+    <%= form.label(:scene, "Story") %>
+    <%= form.radio_button(:scene, "Ingredients") %>
+    <%= form.label(:scene, "Ingredients") %>
+    <h4>Add ons </h4>
+    <div class="btn-group" data-toggle="buttons">
+      <%= form.label :model, class: "btn btn-primary" do %>
+        <%= form.check_box :model %> Model
+      <% end %>
+      <%= form.label :hmu, class: "btn btn-primary" do %>
+        <%= form.check_box :hmu %> HMU
+      <% end %>
+      <%= form.label :local, class: "btn btn-primary" do %>
+        <%= form.check_box :local %> Local
+      <% end %>
+      <%= form.label :stylist, class: "btn btn-primary" do %>
+        <%= form.check_box :stylist %> Stylist
+      <% end %>
+    </div>
+    <div class='row'>
+      <div class='col-md-8 contact-form' style="padding-top:0px;">
+        <%= form.label :content, "Creative Brief" %><br/>
+        <%= form.text_area :content, id: :proposal_content , rows: 10, placeholder: "Creative Brief May Be Up To 1000 Words "%>
+      </div>
+      <div class='col-md-4'>
+        Image Focus Postition
+        <div class='row'>
+          <div class="btn-group" data-toggle="buttons">
+            <%= form.label :top_left, class: "btn btn-primary" do %>
+            <%= form.check_box :top_left %> Top Left
+            <% end %>
+            <%= form.label :top_right, class: "btn btn-primary" do %>
+            <%= form.check_box :top_center %> Top Center
+            <% end %>
+            <%= form.label :top_right, class: "btn btn-primary" do %>
+            <%= form.check_box :top_right %> Top Right
+            <% end %>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="btn-group" data-toggle="buttons">
+            <%= form.label :middle_left, class: "btn btn-primary" do %>
+            <%= form.check_box :middle_left %> Mid Left
+            <% end %>
+            <%= form.label :middle_center, class: "btn btn-primary" do %>
+            <%= form.check_box :middle_center %> Mid Center
+            <% end %>
+            <%= form.label :middle_right, class: "btn btn-primary" do %>
+            <%= form.check_box :middle_right %> Mid Right
+            <% end %>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="btn-group" data-toggle="buttons">
+            <%= form.label :bottom_left, class: "btn btn-primary" do %>
+            <%= form.check_box :bottom_left %> Bot Left
+            <% end %>
+            <%= form.label :bottom_center, class: "btn btn-primary" do %>
+            <%= form.check_box :bottom_center %> Bot Center
+            <% end %>
+            <%= form.label :bottom_right, class: "btn btn-primary" do %>
+            <%= form.check_box :bottom_right %> Bot Right
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Image Upload Row -->
+    <div class='row'>
+      <h4> Image Boards </h4>
+    </div>
+    <div class='row'>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+    </div>
+     <div class='row'>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+      <label class='push-1 image-boards'>
+      + <%= form.file_field :cover_image, style: 'display:none;' %>
+      </label>
+    </div>
+    <!-- End Image Upload Row -->
+    <div class='row'>
+      <h4>Locations Types </h4>
+      <br/>
+      <br/>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Product") %>
+        <%= form.label(:location, "Product") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Beach") %>
+        <%= form.label(:location, "Beach") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Mountain") %>
+        <%= form.label(:location, "Mountain") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Desert") %>
+        <%= form.label(:location, "Desert") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Historical") %>
+        <%= form.label(:location, "Historical") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Industrial") %>
+        <%= form.label(:location, "Industrial") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Floral") %>
+        <%= form.label(:location, "Floral") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Open") %>
+        <%= form.label(:location, "Open") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Adventure") %>
+        <%= form.label(:location, "Adventure") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Cool Interior") %>
+        <%= form.label(:location, "Cool Interior") %>
+      </div>
+      <div class='col-md-3'>
+        <%= form.radio_button(:location, "Water") %>
+        <%= form.label(:location, "Water") %>
+      </div>
+    </div>
+    <div class='row'>
+      <br>
+      <h4>Brand URLs For Style &amp; CI Guidelines </h4>
+    </div>
+    <div class='row contact-form' style="padding-top:0px;">
+      <%= form.label :brand_urls, "Brand Urls" %><br/>
+      <%= form.text_field :brand_urls, id: :proposal_brand_urls , placeholder: "Up to 4 links, Separated By Commas "%>
+    </div>
+    <div class='row'>
+      <h4> BTS </h4>
+    </div>
+    <div class="row btn-group" data-toggle="buttons">
+
+      <%= form.label :bts_photo, class: "btn btn-primary" do %>
+      <%= form.check_box :bts_photo %> Photo
+      <% end %>
+      <%= form.label :bts_video, class: "btn btn-primary" do %>
+      <%= form.check_box :bts_video %> Video
+      <% end %>
+      <%= form.label :bts_set_up, class: "btn btn-primary" do %>
+      <%= form.check_box :bts_set_up %> Set Up
+      <% end %>
+    </div>
+    <div class='row'>
+      <%= form.submit class: 'push-1' %>
+    </div>
+  <% end %>
+</div>
+

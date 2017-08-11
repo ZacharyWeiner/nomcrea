@@ -2,26 +2,32 @@
         <div class="container">
           <div class="navigation">
              <div class="logo">
-              <a href="/">
+              <%= link_to root_path, data: { turbolinks: false }  do %>
                 <p>NOMCRE</p>
-              </a>
+              <% end %>
              </div>
-             <div class="nav-menu-icon"><%= link_to root_path %><i></i></a></div>
-          </div> 
-        </div>             
+             <div class="nav-menu-icon">
+              <%= link_to root_path, data: { turbolinks: false } %>
+             </div>
+          </div>
+        </div>
     <nav>
        <div class="container">
        <ul>
         <li><%= link_to 'Creative', portfolios_path %></li>
         <% unless current_user %>
           <li><%= link_to "Login", new_user_session_path %></li>
+          <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
+        <% else %>
+          <li><%= link_to "Create A Brief", proposal_selection_path, class: 'main-color' %></li>
         <%end%>
-        <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
+
+
         <li><%= link_to "Join Waitlist", new_waitlist_path, class: 'green' %></li>
         <% if current_user %>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <%end%>
        </ul>
        </div>
-    </nav> 
-     </header> 
+    </nav>
+     </header>
