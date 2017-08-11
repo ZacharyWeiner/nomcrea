@@ -100,13 +100,84 @@ class ProposalsController < ApplicationController
   end
 
   def step_4
-    unless params[:title].nil? || params[:brief].nil?
-      session[:title] = params[:title]
-      session[:brief] = params[:brief]
+    unless params[:scene].nil?
+      session[:scene] = params[:scene]
       render '/proposals/wizard_steps/step_4'
     else
       render '/proposals/wizard_steps/step_3'
     end
+  end
+
+  def step_5
+    if params[:model]
+      session[:model] = true
+    end
+    if params[:hmu]
+      session[:hmu] = true
+    end
+    if params[:local]
+      session[:local] = true
+    end
+    if params[:stylist]
+      session[:stylist] = true
+    end
+    render '/proposals/wizard_steps/step_5'
+  end
+
+  def step_6
+    focus_locations = []
+    if params[:top_left]
+      focus_locations << :top_left
+    end
+    if params[:top_center]
+      focus_locations << :top_center
+    end
+    if params[:top_right]
+      focus_locations << :top_right
+    end
+    if params[:middle_left]
+      focus_locations << :middle_left
+    end
+    if params[:middle_center]
+      focus_locations << :middle_center
+    end
+    if params[:middle_right]
+      focus_locations << :middle_right
+    end
+    if params[:bottom_left]
+      focus_locations << :bottom_left
+    end
+    if params[:bottom_center]
+      focus_locations << :bottom_center
+    end
+    if params[:bottom_right]
+      focus_locations << :bottom_right
+    end
+    session[:focus_locations] = focus_locations
+    puts focus_locations
+    render '/proposals/wizard_steps/step_6'
+  end
+
+  def step_7
+    if params[:ci_1]
+      session[:ci_1] = params[:ci_1]
+    end
+    if params[:ci_2]
+      session[:ci_2] = params[:ci_2]
+    end
+    if params[:ci_3]
+      session[:ci_3] = params[:ci_3]
+    end
+    if params[:ci_4]
+      session[:ci_4] = params[:ci_4]
+    end
+    render '/proposals/wizard_steps/step_7'
+  end
+  def step_8
+    if params[:location]
+      session[:location] = params[:location]
+    end
+    render '/proposals/wizard_steps/step_8'
   end
 
   private

@@ -1,0 +1,45 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What Do You Want The Background To Be?</h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposal/wizard-steps/step-8" method="post" class='contact-form'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <label>Beach</label><input type="radio" name="location" value="beach">
+        </div>
+       <div class='col-md-4'>
+         Mountain<input type="radio" name="location" value="mountain">
+       </div>
+       <div class='col-md-4'>
+         Desert<input type="radio" name="location" value="desert">
+       </div>
+       <div class='col-md-4'>
+          <label>Historical</label><input type="radio" name="location" value="historical">
+        </div>
+       <div class='col-md-4'>
+         Industrial<input type="radio" name="location" value="industrial">
+       </div>
+       <div class='col-md-4'>
+         Floral<input type="radio" name="location" value="floral">
+       </div>
+       <div class='col-md-4'>
+          <label>Open</label><input type="radio" name="location" value="open">
+       </div>
+       <div class='col-md-4'>
+         Adventure<input type="radio" name="location" value="adventure">
+       </div>
+       <div class='col-md-4'>
+         Cool Interior<input type="radio" name="location" value="cool-interior">
+       </div>
+       <div class='col-md-4'>
+         Water<input type="radio" name="location" value="water">
+       </div>
+      </div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>
+</div>

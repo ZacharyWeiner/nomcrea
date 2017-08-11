@@ -1,0 +1,57 @@
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Where Will The Focus Points Be?</h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposal/wizard-steps/step-6" method="post" class='contact-form'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <label>Top Left</label>
+          <input type="checkbox" name="top_left" value="top_left" ><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Top Center</label>
+          <input type="checkbox" name="top_center" value="top_center" checked><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Top Right</label>
+          <input type="checkbox" name="top_right" value="top_right" checked><br/>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>
+          <label>Middle Left</label>
+          <input type="checkbox" name="middle_left" value="middle_left" ><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Middle Center</label>
+          <input type="checkbox" name="middle_center" value="middle_center" checked><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Middle Right</label>
+          <input type="checkbox" name="middle_right" value="middle_right" checked><br/>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>
+          <label>Bottom Left</label>
+          <input type="checkbox" name="bottom_left" value="bottom_left" ><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Bottom Center</label>
+          <input type="checkbox" name="bottom_center" value="bottom_center" checked><br/>
+        </div>
+        <div class='col-md-4'>
+          <label>Bottom Right</label>
+          <input type="checkbox" name="bottom_right" value="bottom_right" checked><br/>
+        </div>
+      </div>
+
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+  </div>
+</div>
