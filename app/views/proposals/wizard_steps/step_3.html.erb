@@ -1,0 +1,20 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What Type Of Footage Do You Need? </h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+  <%= session[:title] %> || <%= session[:email] %>
+    <form action="/proposal/wizard-steps/step-3" method="post" class='contact-form'>
+
+    <input type="radio" name="scene" value="product" id="product"><label for="product"> Product</label>
+    <input type="radio" name="scene" value="lifestyle" id="lifestyle"><label for="lifestyle"> Lifestyle</label>
+    <input type="radio" name="scene" value="mixed" id="mixed"><label for="mixed"> Mixed</label>
+    <input type="radio" name="scene" value="story" id="story"><label for="story"> Story</label>
+    <input type="radio" name="scene" value="ingredients" id="ingredients"><label for="ingredients"> Ingredients</label>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>
+

@@ -1,0 +1,17 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What Is This? </h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+  <%= session[:name] %> || <%= session[:email] %>
+    <form action="/proposal/wizard-steps/step-3" method="post" class='contact-form'>
+      <label> Title </label>
+      <input type="text" name="title">
+      <label> Creative Brief </label>
+      <textarea name="brief" maxlength="500" placeholder='Paste your own brief in, or leave blank to use our template'></textarea>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>

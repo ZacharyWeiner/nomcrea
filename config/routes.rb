@@ -3,18 +3,18 @@ Rails.application.routes.draw do
   resources :schedule_items
   resources :schedules
   resources :tags
-  resources :portfolios do 
-    resources :portfolio_items do 
+  resources :portfolios do
+    resources :portfolio_items do
       resources :portfolio_item_attachments
     end
   end
-  
-  resources :proposals do 
+
+  resources :proposals do
     get :autocomplete_tag_name, :on => :collection
     resources :requirements
     get 'accept-requirement/:id', to: 'requirements#accept_requirement', as: 'accept-requirement'
     resources :proposal_requests
-  end 
+  end
   resources :company_users
   devise_for :users
   resources :companies
@@ -24,6 +24,12 @@ Rails.application.routes.draw do
   get '/my-schedule', to: 'pages#my_schedule'
   get 'user-pages/my-skills', to: 'user_pages#my_skills'
   post 'user-pages/my-skills', to: 'user_pages#my_skills'
+  get 'proposal/wizard-steps/step-0', to: 'proposals#step_0'
+  get 'proposal/wizard-steps/step-1', to: 'proposals#step_1'
+  post 'proposal/wizard-steps/step-2', to: 'proposals#step_2'
+  post 'proposal/wizard-steps/step-3', to: 'proposals#step_3'
+  post 'proposal/wizard-steps/step-4', to: 'proposals#step_4'
+  post 'proposal/wizard-steps/step-5', to: 'proposals#step_5'
   get 'proposal-selection', to: 'pages#proposal_selection'
   get '/proposals/:id/add-proposal-request', to: 'proposal_requests#add_request'
   get 'select-role', to: 'pages#select_role'
