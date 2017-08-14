@@ -24,6 +24,19 @@ Rails.application.routes.draw do
   get '/my-schedule', to: 'pages#my_schedule'
   get 'user-pages/my-skills', to: 'user_pages#my_skills'
   post 'user-pages/my-skills', to: 'user_pages#my_skills'
+
+
+  get 'proposals/wizard-steps/client-info', to: 'proposals#set_demo_client_info', as: 'proposal_wizard_client_info'
+  post 'proposals/wizard-steps/client-info', to: 'proposals#set_demo_client_info'
+  get 'proposals/wizard-steps/title', to: 'proposals#set_proposal_title', as: 'proposal_wizard_title'
+  post 'proposals/wizard-steps/title', to: 'proposals#set_proposal_title'
+  get 'proposals/wizard-steps/brief', to: 'proposals#set_proposal_brief', as: 'proposal_wizard_brief'
+  post 'proposals/wizard-steps/brief', to: 'proposals#set_proposal_brief'
+  get 'proposals/wizard-steps/content-type', to: 'proposals#set_proposal_content_type', as: 'proposal_wizard_content_type'
+  post 'proposals/wizard-steps/content-type', to: 'proposals#set_proposal_content_type'
+
+
+
   get 'proposal/wizard-steps/step-0', to: 'proposals#step_0'
   get 'proposal/wizard-steps/step-1', to: 'proposals#step_1'
   post 'proposal/wizard-steps/step-2', to: 'proposals#step_2'

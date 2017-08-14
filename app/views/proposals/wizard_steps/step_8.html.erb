@@ -1,37 +1,38 @@
 <section class="jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">What Kind Of Behind The Scenes Footy Do You Want?</h1>
+    <h1 class="jumbotron-heading">What Add On's Will You Need?</h1>
   </div>
 </section>
 <div class='row'>
   <div class='col-md-8 offset-md-2'>
-    <form action="/proposal/wizard-steps/step-9" method="post" class='contact-form'>
-      <div class='row'>
-        <div class='col-md-1'>
-          <input type="checkbox" name="phott" value="photo" checked>
+  <%= session[:scene] %>
+    <form action="/proposal/wizard-steps/step-5" method="post" class='contact-form'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="photo" value="photo" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Photo</label>
+          </div>
         </div>
-        <div class='col-md-11'>
-          <label class=''>Photo</label>
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="video" value="video" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Video</label>
+          </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-1'>
-          <input type="checkbox" name="video" value="video" checked>
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="setup" value="setup" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Setup</label>
+          </div>
         </div>
-        <div class='col-md-11'>
-          <label class=''>Video</label>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-1'>
-          <input type="checkbox" name="video" value="video" checked>
-        </div>
-        <div class='col-md-11'>
-          <label class=''>Video</label>
-        </div>
-      </div>
-       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="submit" value="Next", class='push-1'>
     </form>
-</div>
+  </div>
 </div>

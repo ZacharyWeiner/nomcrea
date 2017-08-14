@@ -1,0 +1,14 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What Is This? </h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposals/wizard-steps/brief" method="post" class='contact-form'>
+      <label> Creative Brief </label>
+      <textarea name="brief" maxlength="5000" placeholder='Paste your own brief in'></textarea>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>

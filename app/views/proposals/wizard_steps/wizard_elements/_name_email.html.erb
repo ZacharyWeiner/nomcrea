@@ -1,0 +1,17 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Who Are You? </h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposal/wizard-steps/client-info" method="post" class='contact-form'>
+      <label> Name </label>
+      <input type="text" name="name">
+      <label> Email </label>
+      <input type="text" name="email">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>
+

@@ -1,0 +1,14 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What is Your Brief Called? </h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposals/wizard-steps/title" method="post" class='contact-form'>
+      <label> Title </label>
+      <input type="text" name="title">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+</div>

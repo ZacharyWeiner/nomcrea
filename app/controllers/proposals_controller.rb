@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
   layout 'theme'
   autocomplete :tag, :name
 
@@ -71,6 +71,43 @@ class ProposalsController < ApplicationController
     redirect_to proposals_url, notice: 'Proposal was successfully destroyed.'
   end
 
+  def set_demo_client_info
+    email_valid = set_session_proposal_info(:email, params)
+    name_valid = set_session_proposal_info(:name, params)
+    if email_valid && name_valid
+
+    else
+      redirect_to proposal_wizard_client_info_path, notice: 'Please Enter Your Name & Email Address'
+    end
+  end
+
+  def set_proposal_title
+    title_valid = set_session_proposal_info(:title, params)
+    if title_valid
+      render 'proposals/wizard_steps/brief'
+    else
+       render 'proposals/wizard_steps/title', notice: "Please Enter a Title"
+    end
+  end
+
+  def set_proposal_brief
+    brief_valid = set_session_proposal_info(:brief, params)
+    if brief_valid
+      render 'proposals/wizard_steps/content_type'
+    else
+      render 'proposals/wizard_steps/brief'
+    end
+  end
+
+  def set_proposal_content_type
+    content_type_valid = set_session_proposal_info(:content_type, params)
+    if content_type_valid
+
+    else
+      render 'proposals/wizard_steps/content_type'
+    end
+  end
+
   def step_0
     render '/proposals/wizard_steps/step_0'
   end
@@ -80,9 +117,9 @@ class ProposalsController < ApplicationController
   end
 
   def step_2
-    unless params[:email].nil? || params[:name].nil?
-      session[:name] = params[:name]
-      session[:email] = params[:email]
+    email_valid = set_session_proposal_info(:email, params)
+    name_valid = set_session_proposal_info(:name, params)
+    if email_valid && name_valid
       render '/proposals/wizard_steps/step_2'
     else
       render '/proposals/wizard_steps/step_1'
@@ -176,8 +213,13 @@ class ProposalsController < ApplicationController
   def step_8
     if params[:location]
       session[:location] = params[:location]
+      render '/proposals/wizard_steps/step_8'
+    else
+      render '/proposals/wizard_steps/step_7'
     end
-    render '/proposals/wizard_steps/step_8'
+  end
+
+  def step_9
   end
 
   private
