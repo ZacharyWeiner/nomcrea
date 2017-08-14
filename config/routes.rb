@@ -34,7 +34,16 @@ Rails.application.routes.draw do
   post 'proposals/wizard-steps/brief', to: 'proposals#set_proposal_brief'
   get 'proposals/wizard-steps/content-type', to: 'proposals#set_proposal_content_type', as: 'proposal_wizard_content_type'
   post 'proposals/wizard-steps/content-type', to: 'proposals#set_proposal_content_type'
-
+  get 'proposals/wizard-steps/add-ons', to: 'proposals#set_proposal_add_ons', as: 'proposal_wizard_add_ons'
+  post 'proposals/wizard-steps/add-ons', to: 'proposals#set_proposal_add_ons'
+  get 'proposals/wizard-steps/focus-points', to: 'proposals#set_proposal_focus_points', as: 'proposal_wizard_focus_points'
+  post 'proposals/wizard-steps/focus-points', to: 'proposals#set_proposal_focus_points'
+  get 'proposals/wizard-steps/ci-guides', to: 'proposals#set_proposal_ci_guides', as: 'proposal_wizard_ci_guides'
+  post 'proposals/wizard-steps/ci-guides', to: 'proposals#set_proposal_ci_guides'
+  get 'proposals/wizard-steps/scene', to: 'proposals#set_proposal_scene', as: 'proposal_wizard_scene'
+  post 'proposals/wizard-steps/scene', to: 'proposals#set_proposal_scene'
+  get 'proposals/wizard-steps/bts', to: 'proposals#set_proposal_bts', as: 'proposal_wizard_bts'
+  post 'proposals/wizard-steps/bts', to: 'proposals#set_proposal_bts'
 
 
   get 'proposal/wizard-steps/step-0', to: 'proposals#step_0'

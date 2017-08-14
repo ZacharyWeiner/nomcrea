@@ -74,8 +74,9 @@ class ProposalsController < ApplicationController
   def set_demo_client_info
     email_valid = set_session_proposal_info(:email, params)
     name_valid = set_session_proposal_info(:name, params)
-    if email_valid && name_valid
-
+    company_valid = set_session_proposal_info(:company, params)
+    if email_valid && name_valid && company_valid
+      construct_proposal_from_session
     else
       redirect_to proposal_wizard_client_info_path, notice: 'Please Enter Your Name & Email Address'
     end
@@ -102,9 +103,42 @@ class ProposalsController < ApplicationController
   def set_proposal_content_type
     content_type_valid = set_session_proposal_info(:content_type, params)
     if content_type_valid
-
+      render 'proposals/wizard_steps/add_ons'
     else
       render 'proposals/wizard_steps/content_type'
+    end
+  end
+
+  def set_proposal_add_ons
+    set_session_proposal_add_ons(params)
+    render '/proposals/wizard_steps/focus_points'
+  end
+
+  def set_proposal_focus_points
+    set_session_proposal_focus_points(params)
+    render 'proposals/wizard_steps/ci_guides'
+  end
+
+  def set_proposal_ci_guides
+    set_session_ci_guides(params)
+    render 'proposals/wizard_steps/scene_type'
+  end
+
+  def set_proposal_scene
+    scene_valid = set_session_proposal_info(:scene, params)
+    if scene_valid
+      render 'proposals/wizard_steps/bts'
+    else
+      render 'proposals/wizard_steps/scene_type'
+    end
+  end
+
+  def set_proposal_bts
+    if params[:authenticity_token]
+      set_session_bts(params)
+      render 'proposals/wizard_steps/client_info'
+    else
+      render 'proposals/wizard_steps/bts'
     end
   end
 

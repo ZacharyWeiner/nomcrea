@@ -1,0 +1,46 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">What Add On's Will You Need?</h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposals/wizard-steps/add-ons" method="post" class='contact-form'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="model" value="model" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Model</label>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="hmu" value="hmu" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>HMU</label>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="local" value="local" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Local</label>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-1'>
+            <input type="checkbox" name="stylist" value="stylist" checked>
+          </div>
+          <div class='col-md-11'>
+            <label class=''>Stylist</label>
+          </div>
+        </div>
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+  </div>
+</div>
+

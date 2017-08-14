@@ -1,0 +1,29 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Add Any Style Guides Needed</h1>
+  </div>
+</section>
+<div class='row'>
+  <div class='col-md-8 offset-md-2'>
+    <form action="/proposals/wizard-steps/ci-guides" method="post" class='contact-form'>
+      <div class='row'>
+        <label> Style Guide or CI </label>
+        <input type="text" name="ci_1" placeholder="Enter Style Guide 1">
+      </div>
+      <div class='row'>
+        <label> Style Guide or CI </label>
+        <input type="text" name="ci_2" placeholder="Enter Style Guide 2">
+      </div>
+      <div class='row'>
+        <label> Style Guide or CI </label>
+        <input type="text" name="ci_3" placeholder="Enter Style Guide 3">
+      </div>
+      <div class='row'>
+        <label> Style Guide or CI </label>
+        <input type="text" name="ci_4" placeholder="Enter Style Guide 4">
+      </div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Next", class='push-1'>
+    </form>
+  </div>
+</div>
