@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @proposal_message.message %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @proposal_message.user %>
+</p>
+
+<p>
+  <strong>Proposal:</strong>
+  <%= @proposal_message.proposal %>
+</p>
+
+<%= link_to 'Edit', edit_proposal_message_path(@proposal_message) %> |
+<%= link_to 'Back', proposal_messages_path %>

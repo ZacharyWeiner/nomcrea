@@ -1,0 +1,2 @@
+module ProposalMessagesHelper
+end

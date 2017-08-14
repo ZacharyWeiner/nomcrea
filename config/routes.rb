@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :waitlists
   resources :schedule_items
   resources :schedules
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :proposals do
+    resources :proposal_messages
     get :autocomplete_tag_name, :on => :collection
     resources :requirements
     get 'accept-requirement/:id', to: 'requirements#accept_requirement', as: 'accept-requirement'

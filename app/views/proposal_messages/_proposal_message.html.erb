@@ -1,0 +1,12 @@
+<% if proposal_message.user == current_user %>
+  <% background = 'lightgreen' %>
+<% else %>
+  <% background = 'gray' %>
+<% end %>
+<div class='row rounded' style='margin: 10px; background-color: <%= background %>''>
+  <div class='col-md-3'>
+    <%= proposal_message.user.display_name %><br>
+    <small><%= proposal_message.created_at.to_formatted_s(:short)%></small>
+  </div>
+  <div class='col-md-9'><%= proposal_message.message %></div>
+</div>
