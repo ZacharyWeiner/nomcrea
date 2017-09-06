@@ -114,7 +114,7 @@ body[data-color="theme-1"] .border-title {border: 20px solid #f34580;}
 body[data-color="theme-1"] .news-block .text a h6:hover {color: #F34580;}
 body[data-color="theme-1"] .point-style-2 .swiper-pagination-switch.swiper-active-switch {border-color: #f34580;}
 body[data-color="theme-1"] .nav-menu-icon a.active i {background: #f34580;}
-body[data-color="theme-1"] #loading {background: #313fa0;}
+body[data-color="theme-1"] #loading {background: black;}
 body[data-color="theme-1"] .cust-block:hover .bg-main {background: #f34580;}
 
 /*  color style 2 */
@@ -919,4 +919,5 @@ input[type="checkbox"]{
     -webkit-appearance: checkbox;
 }
 
+#loading {background: black}
 
