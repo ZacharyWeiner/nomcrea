@@ -84,16 +84,6 @@ ActiveRecord::Schema.define(version: 20170912151553) do
     t.index ["portfolio_id", "tag_id"], name: "index_portfolios_tags_on_portfolio_id_and_tag_id"
   end
 
-  create_table "proposal_messages", force: :cascade do |t|
-    t.text "message"
-    t.bigint "user_id"
-    t.bigint "proposal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["proposal_id"], name: "index_proposal_messages_on_proposal_id"
-    t.index ["user_id"], name: "index_proposal_messages_on_user_id"
-  end
-
   create_table "proposal_requests", force: :cascade do |t|
     t.bigint "proposal_id"
     t.bigint "user_id"
@@ -225,8 +215,6 @@ ActiveRecord::Schema.define(version: 20170912151553) do
   add_foreign_key "portfolio_item_attachments", "portfolio_items", on_delete: :cascade
   add_foreign_key "portfolio_items", "portfolios"
   add_foreign_key "portfolios", "users"
-  add_foreign_key "proposal_messages", "proposals"
-  add_foreign_key "proposal_messages", "users"
   add_foreign_key "proposal_requests", "companies"
   add_foreign_key "proposal_requests", "proposals"
   add_foreign_key "proposal_requests", "users"

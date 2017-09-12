@@ -4,7 +4,6 @@
   has_one :chat_room
   has_many :requirements
   has_many :proposal_requests
-  has_many :proposal_messages
   has_and_belongs_to_many :tags
   scope :available, -> {where(accepted: false)}
   scope :completed, -> {where(completed: true)}
