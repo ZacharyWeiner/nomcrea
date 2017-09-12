@@ -29,4 +29,17 @@ class User < ApplicationRecord
   def scenes
     self.tags.where(tag_type: 'scene')
   end
+
+  def safe_image
+    if self.profile_image.nil?
+      return self.gravitar_url
+    else
+      return self.profile_image
+    end
+  end
+
+   def gravitar_url
+    user_hash = Digest::MD5.hexdigest(self.email)
+    'http://gravatar.com/avatar/' + user_hash
+  end
 end
