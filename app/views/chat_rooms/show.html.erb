@@ -4,23 +4,31 @@
   </div>
 </div>
 <div class='container'>
-  <div class="row">
+  <div class="row" >
     <div class='col-md-8 md-offset-2'>
       <div class="panel-body">
         <ul class="chat">
           <% if @chatroom.messages.any? %>
-            <div class="panel-body" id="messages">
+            <div class="panel-body" id="messages" style='max-height: 400px; overflow-y: scroll'>
               <%= render partial: 'messages/message', collection: @chatroom.messages%>
             </div>
           <%else%>
-            <div class="panel-body hidden" id="messages">
+            <div class="panel-body hidden" id="messages" style='max-height: 400px; overflow-y: scroll'>
             </div>
           <%end%>
         </ul>
       </div>
     </div>
   </div>
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+  <div class="row" >
+    <div class='col-md-8 md-offset-2'>
+      <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+    </div>
+  </div>
 </div>
 
 
+<script type="text/javascript">
+  var mydiv = $("#messages");
+  mydiv.scrollTop(mydiv.prop("scrollHeight"));
+</script>

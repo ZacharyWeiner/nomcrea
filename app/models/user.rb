@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def safe_image
-    if self.profile_image.nil?
+    if self.profile_image.nil? || self.profile_image.url.nil?
       return self.gravitar_url
     else
       return self.profile_image
