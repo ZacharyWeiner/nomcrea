@@ -11,7 +11,7 @@
     <p class="lead text-muted">
       <% if @proposal.company.users.include?(current_user) %>
       <%= link_to "Find Creatives", {:action=> "index", :controller => "search"}, class: 'push-1' %>
-      <%= link_to "Chat With Creative", proposal_proposal_messages_path(@proposal), class: 'push-1', data: { turbolinks: false } %>
+      <%= link_to "Chat With Creative", chat_room_path(@proposal.chat_room), class: 'push-1', data: { turbolinks: false } %>
       <% end %>
     </p>
 

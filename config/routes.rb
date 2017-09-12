@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => '/cable'
+  resources :chat_rooms do
+    resources :messages
+  end
   resources :waitlists
   resources :schedule_items
   resources :schedules

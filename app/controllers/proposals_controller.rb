@@ -13,6 +13,9 @@ class ProposalsController < ApplicationController
   # GET /proposals/1
   def show
     @requests = @proposal.proposal_requests.where(user: current_user)
+    if @proposal.chat_room.nil?
+      @proposal.chat_room = ChatRoom.create(proposal: @proposal, topic: @proposal.title)
+    end
     render 'show'
   end
 

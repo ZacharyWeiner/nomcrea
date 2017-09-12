@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814183240) do
+ActiveRecord::Schema.define(version: 20170912151553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.bigint "users_id"
+    t.string "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "proposal_id"
+    t.index ["proposal_id"], name: "index_chat_rooms_on_proposal_id"
+    t.index ["users_id"], name: "index_chat_rooms_on_users_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -29,6 +39,16 @@ ActiveRecord::Schema.define(version: 20170814183240) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_room_id"
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "portfolio_item_attachments", force: :cascade do |t|
@@ -199,6 +219,9 @@ ActiveRecord::Schema.define(version: 20170814183240) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "chat_rooms", "proposals"
+  add_foreign_key "messages", "chat_rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "portfolio_item_attachments", "portfolio_items", on_delete: :cascade
   add_foreign_key "portfolio_items", "portfolios"
   add_foreign_key "portfolios", "users"

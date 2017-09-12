@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: nomcrea-rails_production
+  url: redis://redistogo:d1801f40a8964fb04fb264932e63d685@chubb.redistogo.com:9347/

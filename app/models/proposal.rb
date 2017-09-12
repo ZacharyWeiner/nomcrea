@@ -1,6 +1,7 @@
  class Proposal < ApplicationRecord
   belongs_to :company
   belongs_to :user, optional: true
+  has_one :chat_room
   has_many :requirements
   has_many :proposal_requests
   has_many :proposal_messages
