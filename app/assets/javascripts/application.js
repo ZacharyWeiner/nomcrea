@@ -11,8 +11,7 @@
 // about supported directives.
 //
 
-//= require jquery3
-//= require rails-ujs
+
 //= require jquery.turbolinks
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui
