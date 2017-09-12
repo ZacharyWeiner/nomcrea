@@ -1,11 +1,19 @@
 
      <!--==========HEADER============-->
-    
 
-  <div id="loading"><div id="loading-center"><div id="loading-center-absolute">
-     <div class="object" id="first_object"></div><div class="object" id="second_object"></div>
-     <div class="object" id="third_object"></div></div></div></div> 
-     
+
+  <div id="loading">
+    <div id="loading-center text-center">
+      <div id="loading-center-absolute">
+        <div class="object" id="first_object"></div>
+        <div class="object" id="second_object"></div>
+        <div class="object" id="third_object"></div>
+        <div class='text-center'>Nomadic Creative</div>
+      </div>
+
+    </div>
+  </div>
+
      <!--==========Carousel============-->
     <%= render 'theme/home_banner' %>
     <!--==========Carousel============-->
@@ -14,23 +22,23 @@
     <%= render 'theme/numbers_divider' %>
     <%= render 'theme/services' %>
 
-     
+
     <!-- Mmissing Masonry with overly-->
-  <%= render 'theme/theme_portfolio' %>  
+  <%= render 'theme/theme_portfolio' %>
   <%= render 'theme/why_us' %>
-  
+
   <%= render 'theme/how_we_work' %>
   <%= render 'theme/team_carousel' %>
   <%= render 'theme/offers' %>
   <%= render 'theme/contact' %>
-    
+
 <script>
   function submitForm() {
       $.ajax({type:'POST', url:'email-action.php', data:$('#contact-form').serialize(), success: function(response) {
          $('.submit').html('sent');
          $('.success').html('Your message was sent successfully');
-         document.contactform.reset();                                 
-      }});                
+         document.contactform.reset();
+      }});
       return false;
-    } 
-</script>                                                       
+    }
+</script>
