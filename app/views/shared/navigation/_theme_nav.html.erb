@@ -12,11 +12,11 @@
   <nav>
      <div class="container">
        <ul>
-        <li><%= link_to 'Creative', portfolios_path, class: 'anchor-scroll' %></li>
         <% unless current_user %>
-          <li><%= link_to "Login", new_user_session_path, class: 'anchor-scroll' %></li>
-          <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
           <li><%= link_to "Join Waitlist", new_waitlist_path, style: 'color:#A8B0B3' %></li>
+          <li><%= link_to 'Our Creative', portfolios_path, class: 'anchor-scroll' %></li>
+          <li><%= link_to "Create A Brief", new_user_registration_path, class: 'main-color' %></li>
+          <li><%= link_to "Login", new_user_session_path, class: 'anchor-scroll' %></li>
         <% else %>
           <li><%= link_to "Create A Brief", proposal_selection_path, class: 'main-color' %></li>
           <%= render '/shared/navigation/user_nav' %>
