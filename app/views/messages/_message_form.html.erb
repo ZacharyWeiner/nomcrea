@@ -1,7 +1,13 @@
+<div class="panel-footer">
 <%= form_for [@chatroom, @message] do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
+
+  <div class='input-group'>
+  <%= f.text_area :content, class: "form-control input-sm", placeholder:"Type your message....", data: {textarea: "message"} %>
 
   <%= f.hidden_field :chat_room_id, value: @chatroom.id %>
-  <%= f.submit "send", class: "btn btn-primary",  data: {send: "message"} %>
+  <%= f.submit "send", class: "btn btn-warning btn-sm",  data: {send: "message"} %>
+  </div>
 <% end %>
+</div>
+
+
