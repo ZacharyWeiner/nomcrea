@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/my-proposals', to: 'pages#my_proposals'
   get '/my-requests', to: 'pages#my_requests'
   get '/my-schedule', to: 'pages#my_schedule'
+  get '/video', to: 'pages#video'
   get 'user-pages/my-skills', to: 'user_pages#my_skills'
   post 'user-pages/my-skills', to: 'user_pages#my_skills'
   get 'proposal/wizard-steps/step-0', to: 'proposals#step_0'
