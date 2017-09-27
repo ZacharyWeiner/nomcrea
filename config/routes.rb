@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get 'accept-request/:id', to: 'proposal_requests#accept_request'
   get 'search/proposals/:id', to: 'search#index', as: "search/proposals"
   get 'theme', to:'themes#theme', as: 'contact'
+  get 'adminlte', to: 'admin#adminlte'
   resources :charges
   post 'contact', to:'contact_submission#save', as: 'contact_submit'
   get 'contact_submissions', to: 'contact_submission#index'

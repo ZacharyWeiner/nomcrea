@@ -19,3 +19,4 @@ Rails.application.config.assets.precompile += %w( jquery.js )
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( application_back.css application_back.js )
